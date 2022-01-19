@@ -486,7 +486,7 @@
 }
 
 .og-grid li a {
-	overflow: auto;
+	overflow: hidden;
 }
 
 .og-grid li a.unhoverdir {
