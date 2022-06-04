@@ -1,6 +1,7 @@
 const express = require('express')
 
 const db = require('../models')
+const exhibits = require('../models/exhibits')
 
 // USER AUTHENTICATION
 /*  this function compare the username, and hashed password against database
@@ -14,20 +15,30 @@ function userAuthentication (username, password, userId) {
     console.log('calling user authentication')
 
     console.log(`Username: ${username}`)
+
     console.log(`Password: ${password}`)
-    
+
+    console.log(`UserId: ${userId}`)
+
+    // if user Id exist mean that user already authenticated
+
+    if(userId != undefined && userId !== '') {
+        // get user info and return true if user exist
+
+        // query db for user using user id
+
+        // if user exist retur true
+
+        // else return false
+        console.log('User Id Exist')
+
+        return true
+    }
 
     if (username == undefined || password == undefined || username === '' || password === '') {
         return false
     }
-
-    // if user Id exist mean that user already authenticated
-
-    if(userId !== '') {
-        // get user info and return true if user exist
-        return true
-    }
-
+    
     // authenticate the user
 
     // hash and salt user password
