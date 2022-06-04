@@ -1,8 +1,8 @@
-import Def from './default'
-import Topics from './Topics'
+import Def from './Default'
+import Topic from './Topics'
 const React = require('react')
 
-export default function User () {
+export default function Users () {
    return (
        <Def>
            <main className='user-view'>
@@ -22,7 +22,7 @@ export default function User () {
                             <h2>Your {topic4.title} is due on {duedate}</h2>
                         </li>
                         <li>
-                            <Link to="/topics">Topics Sign-Up Sheet</Link>
+                            <Link to="/Topics">Topics Sign-Up Sheet</Link>
                         </li>
                     </ul>
                    </div>
