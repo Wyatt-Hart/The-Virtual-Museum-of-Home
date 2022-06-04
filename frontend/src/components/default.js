@@ -13,6 +13,9 @@ export default function Def(html) {
                         <li>
                             <Link to="/users">Users</Link>
                         </li>
+                        <li>
+                            <Link to="/users">Topics</Link>
+                        </li>
                     </ul>
                 </nav>
                 {html.children}
