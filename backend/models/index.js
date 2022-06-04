@@ -6,6 +6,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true
 })
 
+
 module.exports.Exhibit = require('./exhibits')
 module.exports.User = require('./users')
 module.exports.Comment = require('./comments')
