@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', require('./controllers/users'))
 app.use('/api/exhibits', require('./controllers/exhibits'))
+app.use('/api/userAuthTest', require('./controllers/user-auth-test'))
 
 app.listen(port, ()=>{
     console.log('[Express] The Server is live on ' + port)
