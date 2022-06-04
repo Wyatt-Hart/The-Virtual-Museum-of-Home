@@ -16,6 +16,9 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
     (e) => { console.log(e) }
   )
 
+console.log('[Mongoose] running at ' + process.env.MONGO_URI)
+
+
 app.get('/', (req, res) => {
     res.json('Server is working')
 })
