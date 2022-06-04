@@ -1,4 +1,4 @@
-import Def from './default'
+import Def from './Default'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 const React = require('react')

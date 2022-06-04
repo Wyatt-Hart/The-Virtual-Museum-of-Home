@@ -1,4 +1,4 @@
-import Def from './default'
+import Def from './Default'
 const React = require('react')
 
 export default function Error404() {
