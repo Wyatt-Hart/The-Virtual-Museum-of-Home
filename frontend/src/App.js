@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react'
+
 
 function App() {
+
+  const [testVar, setTestVar] = useState('Nothin yet')
+
+  useEffect(() => {
+    fetch('/api/exhibits')
+      .then((res) => res.text())
+      .then((data) => setTestVar(data))
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +28,9 @@ function App() {
         >
           Learn React
         </a>
+        <h1>
+          {testVar}
+        </h1>
       </header>
     </div>
   );
