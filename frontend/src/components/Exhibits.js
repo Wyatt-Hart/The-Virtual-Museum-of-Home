@@ -1,10 +1,20 @@
-import Def from './default'
+import Def from './Default'
+import { useState, useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
 const React = require('react')
 
-export default function Home () {
+export default function Exhibits () {
+    let { id } = useParams()
+    const [topic, setExhibit ] = useState({})
+    useEffect(() => {
+        push(`/topics/${id}`)
+            .then((res) => res.json())
+            .then((topic) => setExhibit(exhibit))
+    })
+
    return (
-       <Def>
-           <main className='home'>
+        <Def>
+           <main className='exhibit'>
                <h1>The Virtul Museum of Home</h1>
                <section class="image-grid">
                   <div class="image__cell is-collapsed">
