@@ -1,7 +1,8 @@
 const express = require('express')
-
+const bcrypt = require('bcrypt')
 const db = require('../models')
-const exhibits = require('../models/exhibits')
+
+
 
 // USER AUTHENTICATION
 /*  this function compare the username, and hashed password against database
@@ -10,42 +11,60 @@ const exhibits = require('../models/exhibits')
 *   output: false if user does not exist or password mismatch, only return true if username exist, and password matched
 *
 */
-function userAuthentication (username, password, userId) {
+
+const bcryptSaltRounds = 12
+
+async function userPasswordHashed (password) {
+    // for hashing of user password during creation or reseting of user password
+
+    const hashedPassword = await bcrypt.hash(password, bcryptSaltRounds)
+
+    return hashedPassword
+}
+
+async function userAuthentication (username, password, userId) {
 
     console.log('calling user authentication')
-
-    console.log(`Username: ${username}`)
-
-    console.log(`Password: ${password}`)
-
-    console.log(`UserId: ${userId}`)
 
     // if user Id exist mean that user already authenticated
 
     if(userId != undefined && userId !== '') {
+
         // get user info and return true if user exist
+        let user = await db.User.findById({
 
-        // query db for user using user id
+            where: { id: userId }
+        })
 
-        // if user exist retur true
+        // if user does not exist then return false
+        if(!user) {
 
-        // else return false
-        console.log('User Id Exist')
+            return false;
+        }
 
+        // user exist
         return true
     }
 
+    // return false if username or password not provided
     if (username == undefined || password == undefined || username === '' || password === '') {
+
         return false
     }
     
     // authenticate the user
+    let user = await db.User.find({
+
+        where: { email: username }
+    })
+
+    const hashPassword = await bcrypt.hash(password, bcryptSaltRounds)
 
     // hash and salt user password
+    if(!user || !await bcrypt.compare(hashPassword, user.passwordDigest)) {
 
-    // get user information from db
-
-    //
+        return false
+    }
 
     return false
 }
@@ -63,7 +82,11 @@ function userAuthorization (userId, documentId, action) {
     console.log('calling user authorization')
 
     const ACTION = ["CREATE", "EDIT", "DELETE", "VIEW"]
+
+
     
 }
 
-module.exports = {userAuthentication, userAuthorization}
+
+
+module.exports = {userAuthentication, userAuthorization, userPasswordHashed}
