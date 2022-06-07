@@ -3,6 +3,7 @@ import Error404 from './components/error404';
 import NewForm from './components/Topics-new';
 import Home from './components/Home';
 import Topics from './components/Topics-select';
+import Signin from './components/Signin';
 // import Users from './components/User'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Topics' element={<Topics />} />
           <Route path='/Topics/new' element={<NewForm />} />
+          <Route path='/SignIn' element={<Signin />} />
           {/* <Route path='/Topics/:id/edit' element={<EditForm />} /> */}
           {/* <Route path='/Users/:id' element={<Users />} /> */}
           
