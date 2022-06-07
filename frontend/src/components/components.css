@@ -1,8 +1,41 @@
+.title {
+  text-align: center;
+  font-size: 3em;
+  color: white;
+  background-color: black;
+  margin: 0;
+}
 
 .navbar {
-  text-align: center;
-  text-decoration: none;
+  text-align:center;
+  color: white;
+  background-color: black;
 }
+
+.navbar ul {
+  list-style-type: none;
+  display: inline;
+  margin: 1vw;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  }
+
+.navbar ul li {
+  list-style-type: none;
+  display: inline;
+  margin: 1vw;
+  text-decoration: none;
+  }
+
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 2em;
+    color: white;
+    background-color: black;
+  }
+
 
 .row {
     display: flex;
@@ -13,10 +46,15 @@
   /* Create five equal columns that sits next to each other */
   .column {
     flex: 20%;
-    padding: 0 4px;
+    padding: 0 1vw;
   }
   
   .column img {
     margin-top: 8px;
     vertical-align: middle;
+  }
+
+  .museum {
+    color: white;
+    background-color: black;
   }
