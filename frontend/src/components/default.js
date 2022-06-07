@@ -6,10 +6,10 @@ const React = require('react')
 export default function Def(html) {
     return (
             <>
+            <h1 className='title'>The Virtual Museum of Home</h1>
                 <nav className='navbar'>
-                    <h1>The Virtul Museum of Home</h1>
                     <ul>
-                        <li>
+                        <li className='navlink'>
                             <Link to="/">Museum</Link>
                         </li>
                         <li>
@@ -19,6 +19,7 @@ export default function Def(html) {
                             <Link to="/topics">Sign Up for Exhibits</Link>
                         </li>
                     </ul>
+
                 </nav>
                 {html.children}
             </>
