@@ -1,4 +1,4 @@
-import Def from '../default'
+import Def from './default'
 const React = require('react')
 
 export default function Home () {
