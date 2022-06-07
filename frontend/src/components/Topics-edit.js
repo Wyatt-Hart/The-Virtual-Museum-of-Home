@@ -1,8 +1,10 @@
-import Def from '../default'
+import Def from './default'
 const React = require('react')
 
-function New () {
+export default function EditForm () {
+  let data = {topic: {id: 3}}
     return (
+      <Def>
       <div className="topics-new">
         
         <form method='POST' action={`/topics/${data.topic.id}?_method=PUT`}>
@@ -30,7 +32,6 @@ function New () {
         </form>
 
       </div>
+      </Def>
     )
 }
-
-module.exports = New

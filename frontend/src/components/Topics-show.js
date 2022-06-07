@@ -1,9 +1,10 @@
-import Def from '../default'
+import Def from './default'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 const React = require('react')
 
-const topicContainer = (
+export default function Topics(){
+  return (
   <div className="topics-show">
     <h2>Claim Your Exhibit Topics</h2>
 
@@ -12,6 +13,4 @@ const topicContainer = (
     </p>
 
   </div>
-)
-
-module.exports = topicsShow
+)}
