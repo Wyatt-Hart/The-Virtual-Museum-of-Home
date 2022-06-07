@@ -1,9 +1,20 @@
 
 const express = require('express')
 const userAuthTest = express.Router()
-const { userAuthentication } = require('./users-auth')
+const { userAuthentication, userAuthorization ,userPasswordHashed } = require('./users-auth')
 
 const db = require('../models')
+
+// TEST PASSWORD HASH
+userAuthTest.post('/password', async(req, res) => {
+
+    const password = req.body.password
+
+    const hashedPassword = userPasswordHashed(password)
+
+    console.log(hashedPassword)
+
+})
 
 // TEST AUTHO
 
