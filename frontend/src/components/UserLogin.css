@@ -1,3 +1,4 @@
+
 .login-container a {
     font-size: 1em;
     text-align: center;
@@ -37,6 +38,7 @@ input {
     padding: 0 5px;
     height: 40px;
     border-style: none;
+    margin-top: 1em;
 }
 
 input[type=submit] {
