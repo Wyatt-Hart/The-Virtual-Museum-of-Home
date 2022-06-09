@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Error404 from './components/error404';
 import NewForm from './components/Topics-new';
 import Home from './components/Home';
-import Topics from './components/Topics-select';
+import Topics from './components/Assignments';
 import UserLogin from './components/UserLogin';
 import SignUp from './components/SignUp'
 import { UserProvider } from './contexts/UserContext';
