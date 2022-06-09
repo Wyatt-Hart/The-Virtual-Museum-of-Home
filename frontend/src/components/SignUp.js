@@ -42,23 +42,6 @@ export default function Signin() {
 
                     </form>
                 </div>
-                <div style={{width:'35vw', margin:'0 auto', display:'inline-flex', flexDirection: 'column'}}>
-                    <h2>Login</h2>
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label style={{padding:'1rem'}}>Username</label>
-                            <input></input>
-                        </div>
-
-                        <div>
-                            <label style={{padding:'1rem'}}>Password</label>
-                            <input></input>
-                        </div>
-
-                        <button type='Submit'>Login</button>
-
-                    </form>
-                </div>
             </div>
         </Def>
     )
