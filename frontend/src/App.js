@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import Error404 from './components/error404';
-import NewForm from './components/Topics-new';
+import Topics from './components/Topics';
 import Home from './components/Home';
-import Topics from './components/Topics-select';
+import Exhibit from './components/Exhibit';
+
 // import Users from './components/User'
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
           <Route path='*' element={<Error404 />}/>
           <Route path='/' element={<Home />} />
           <Route path='/Topics' element={<Topics />} />
-          <Route path='/Topics/new' element={<NewForm />} />
+          <Route path='/Exhibit' element={<Exhibit />} />
           {/* <Route path='/Topics/:id/edit' element={<EditForm />} /> */}
           {/* <Route path='/Users/:id' element={<Users />} /> */}
           
