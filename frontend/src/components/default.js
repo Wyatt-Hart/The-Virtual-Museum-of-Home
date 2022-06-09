@@ -16,18 +16,15 @@ export default function Def(html) {
                             <Link to="/Assignments">Assignments</Link>
                         </li>
                         <li>
-                            <Link to="/Exhibit-New">Create Your Exhibits</Link>
-                        </li>
-                        <li>
                             <Link to="/topics/new">Create Exhibit</Link>
                         </li>
                         <li>
-                            <Link to="/Login">Login</Link>
+                            <Link to="/Exhibit">*TEMP*Exhibit</Link>
                         </li>
-                        {/* This last link won't be on the navbar. We need to make a profile tab for this page.}
                         <li>
                             <Link to="/Login">Login</Link>
                         </li>
+                        {/* This last link won't be on the navbar. We need to make a profile tab for this page.*/}
                     </ul>
 
                 </nav>
