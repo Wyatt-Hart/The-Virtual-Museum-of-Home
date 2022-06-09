@@ -6,6 +6,8 @@ import Topics from './components/Topics-select';
 import UserLogin from './components/UserLogin';
 import SignUp from './components/SignUp'
 import { UserProvider } from './contexts/UserContext';
+import Exhibit from './components/Exhibit';
+
 
 function App() {
   return (
@@ -20,11 +22,12 @@ function App() {
           <Route path='/Topics' element={<Topics />} />
           <Route path='/Topics/new' element={<NewForm />} />
           <Route path='/SignUp' element={<SignUp />} />
+          <Route path='/Exhibit' element={<Exhibit />} />
           {/* <Route path='/Topics/:id/edit' element={<EditForm />} /> */}
           {/* <Route path='/Users/:id' element={<Users />} /> */}
           
         </Routes>
-        </UserProvider>
+      </UserProvider>
       </header>
     </div>
   );
