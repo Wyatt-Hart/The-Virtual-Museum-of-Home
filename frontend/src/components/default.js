@@ -19,6 +19,9 @@ export default function Def(html) {
                             <Link to="/Exhibit-New">Create Your Exhibits</Link>
                         </li>
                         <li>
+                            <Link to="/topics/new">Create Exhibit</Link>
+                        </li>
+                        <li>
                             <Link to="/Login">Login</Link>
                         </li>
                         {/* This last link won't be on the navbar. We need to make a profile tab for this page.}

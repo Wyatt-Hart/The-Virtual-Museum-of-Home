@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const res = require('express/lib/response')
 const { userAuthentication, userAuthorization ,userPasswordHashed, createUser } = require('./users-auth')
+const jwt = require('jsonwebtoken')
 
 // const db = require('../models')
 
@@ -77,6 +78,8 @@ router.post('/login', async (req, res) => {
 
         const result = jwt.sign(currentUser.id, process.env.JWT_SECRET)
 
+        console.log(result)
+
         res.status(200).json({
             success: true,
             message: 'User authenticated',
@@ -85,9 +88,9 @@ router.post('/login', async (req, res) => {
                 userId: currentUser.id,
                 username: currentUser.username,
                 email: currentUser.email,
-                user: currentUser.allowPasswordReset,
+                allowPasswordReset: currentUser.allowPasswordReset,
                 exhibitTopics: currentUser.exhibitTopics,
-                token: result.value
+                token: result
 
             }
         })

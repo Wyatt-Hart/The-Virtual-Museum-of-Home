@@ -24,7 +24,7 @@ function App() {
 
     // contact api to login
     const attemptLogin = async(username, password) => {
-        const url = 'https://frozen-plateau-93848.herokuapp.com/users/login'
+        const url = '/api/users/login'
         let response = await fetch(url,
             {
                 method: 'POST',
@@ -38,9 +38,16 @@ function App() {
 
         const result = await response.json();
 
-        if(result && result.data.length > 0) {
+        console.log(result)
 
-            setUser(result.data[0])
+        if(result.success) {
+
+            
+            console.log(result.data)
+            
+            setUser(result.data)
+
+            localStorage.setItem('token', result.data.token)
 
             navigate("/")
 
@@ -65,7 +72,7 @@ function App() {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         type="text"
-                        placeholder="firstname.lastname"
+                        placeholder="Username"
                         required
                     />
                     <br />
