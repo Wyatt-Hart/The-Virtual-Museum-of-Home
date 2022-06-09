@@ -22,12 +22,15 @@ router.post('/createUser', async(req, res) => {
     const createdUser = await createUser(userId, newUser)
 
     if(!createdUser) {
+
         res.status(401).json({
             success: false,
             message: 'Unauthorized Action',
             data: ""
         })
+
     } else {
+
         res.status(200).json({
             success: true,
             message: 'User successfully created',
@@ -43,6 +46,7 @@ router.post('/passwordReset', async(req, res) => {
     const currentUser = req.currentUser
 
     if(!currentUser.allowPasswordReset) {
+
         res.status(401).json({
             success: false,
             message: 'Unauthorized Action',
@@ -56,22 +60,36 @@ router.post('/passwordReset', async(req, res) => {
 
 router.post('/login', async (req, res) => {
 
-    const userName = req.body.username
+    const username = req.body.username
     const password = req.body.password
 
-    const currentUser = await userAuthentication(userName, password)
+    const currentUser = await userAuthentication(username, password)
 
-    if(IcurrentUser) {
+    if(!currentUser) {
+
         res.status(401).json({
             success: false,
             message: 'User not authorized',
             data: ""
         })
+
     } else {
+
+        const result = jwt.sign(currentUser.id, process.env.JWT_SECRET)
+
         res.status(200).json({
             success: true,
             message: 'User authenticated',
-            data: currentUser
+            data: {
+                
+                userId: currentUser.id,
+                username: currentUser.username,
+                email: currentUser.email,
+                user: currentUser.allowPasswordReset,
+                exhibitTopics: currentUser.exhibitTopics,
+                token: result.value
+
+            }
         })
     }
 })

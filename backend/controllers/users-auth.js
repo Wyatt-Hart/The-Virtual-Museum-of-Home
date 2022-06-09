@@ -45,7 +45,6 @@ async function createUser(userId, newUserData) {
 
 }
 
-
 async function userPasswordHashed (password) {
     // for hashing of user password during creation or reseting of user password
 
@@ -85,23 +84,18 @@ async function userAuthentication (username, password, userId) {
     }
     
     // authenticate the user
-    let user = await db.User.find({
+    let user = await db.User.findOne({
 
         where: { username: username }
     })
-
-    const hashPassword = await bcrypt.hash(password, bcryptSaltRounds)
-
+    
     // hash and salt user password
-    if(!user || !await bcrypt.compare(hashPassword, user.password)) {
-
+    if(!user || !await bcrypt.compare(password, user.password)){
         return false
-
     } else {
         
         return user
-    } 
-
+    }
 }
 
 // USER AUTHORIZATION

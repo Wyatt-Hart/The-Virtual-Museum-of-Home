@@ -45,7 +45,7 @@ userAuthTest.post('/password', async(req, res) => {
 
     const password = req.body.password
 
-    console.log("Generating Password")
+    console.log("Generating Password?")
 
     console.log(password)
 

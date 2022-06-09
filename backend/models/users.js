@@ -7,7 +7,8 @@ let userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     profileCode: { type: Number, required: true, default: 0 },
     allowPasswordReset: { type: Boolean, required: true, default: false },
-
+    username: { type: String, required: true},
+    
     exhibitTopics: [{ 
         type: Schema.Types.ObjectId, 
         ref: 'Exhibit' }],
