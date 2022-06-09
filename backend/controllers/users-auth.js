@@ -14,6 +14,37 @@ const db = require('../models')
 
 const bcryptSaltRounds = 12
 
+async function createUser(userId, newUserData) {
+    
+    let user = await db.User.findById({
+
+        where: { id: userId }
+    })
+
+    if(!user) {
+
+        return false
+    }
+
+    if(user.profileCode != 10) {
+
+        return false
+    }
+
+    try {
+
+        const newUser = await db.User.create(newUserData)
+
+        if(newUser.id) return newUser
+
+    } catch {
+        
+        return false
+
+    }   
+
+}
+
 async function userPasswordHashed (password) {
     // for hashing of user password during creation or reseting of user password
 
@@ -53,20 +84,18 @@ async function userAuthentication (username, password, userId) {
     }
     
     // authenticate the user
-    let user = await db.User.find({
+    let user = await db.User.findOne({
 
-        where: { email: username }
+        where: { username: username }
     })
-
-    const hashPassword = await bcrypt.hash(password, bcryptSaltRounds)
-
+    
     // hash and salt user password
-    if(!user || !await bcrypt.compare(hashPassword, user.passwordDigest)) {
-
+    if(!user || !await bcrypt.compare(password, user.password)){
         return false
+    } else {
+        
+        return user
     }
-
-    return false
 }
 
 // USER AUTHORIZATION
@@ -89,4 +118,4 @@ function userAuthorization (userId, documentId, action) {
 
 
 
-module.exports = {userAuthentication, userAuthorization, userPasswordHashed}
+module.exports = {userAuthentication, userAuthorization, userPasswordHashed, createUser}
