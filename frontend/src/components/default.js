@@ -19,7 +19,7 @@ export default function Def(html) {
                             <Link to="/topics">Sign Up for Exhibits</Link>
                         </li>
                         <li>
-                            <Link to="/SignIn">Login</Link>
+                            <Link to="/Login">Login</Link>
                         </li>
                     </ul>
 
