@@ -15,8 +15,9 @@ const db = require('../models')
 const bcryptSaltRounds = 12
 
 async function createUser(userId, newUserData) {
+    console.log("Create User:")
     
-    let user = await db.User.findById({
+    let user = await db.User.findOne({
 
         where: { id: userId }
     })
@@ -32,6 +33,8 @@ async function createUser(userId, newUserData) {
     }
 
     try {
+        console.log('Create New User:')
+        console.log(newUserData)
 
         const newUser = await db.User.create(newUserData)
 

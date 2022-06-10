@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './UserLogin.css'
 import { UserContext } from "../contexts/UserContext";
 
@@ -41,9 +41,6 @@ function App() {
         console.log(result)
 
         if(result.success) {
-
-            
-            console.log(result.data)
             
             setUser(result.data)
 
@@ -53,7 +50,7 @@ function App() {
 
 
         } else {
-            console.log("Invalid User Name or Password")
+
             setLoginMessage ("Invalid User Name or Password")
         }
         
@@ -85,7 +82,7 @@ function App() {
                     />
                     <br /> 
                     <h4> Don't have an account yet? 
-                        <a href="Signup">Sign up here</a>
+                        <Link to="/SignUp">Sign up here</Link>
                     </h4>
                     <input type="submit" value="Login" />
                     
