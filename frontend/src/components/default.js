@@ -6,7 +6,6 @@ import  { UserContext } from "../contexts/UserContext";
 const React = require('react')
 
 
-
 export default function Def(html) {
 
     const navigate = useNavigate();
@@ -68,22 +67,12 @@ export default function Def(html) {
                         </li>
       
                         <li className='navlink'>
-                            <Link to="/topics">Assignments</Link>
-                        </li>
-                        <li className='navlink'>
-                            <Link to="/exhibit-new">Create an Exhibit</Link>
-                        </li>
-                        {/* This last link won't be on the website. I've just made it for now so I can see what an individual exhibit page will look like as I build it. Each exhibit page will be linked to it's corresponding image on the homepage*/}
-                        <li className='navlink'>
-                            <Link to="/exhibit">Exhibit</Link>
+                            <Link to="/assignments">Assignments</Link>
                         </li>
                         <li>
-                            <Link to="/Assignments">Assignments</Link>
+                            <Link to="/topics/new">Create an Exhibit</Link>
                         </li>
-                        <li>
-                            <Link to="/topics/new">Create Exhibit</Link>
-                        </li>
-                        {/* This last link won't be on the website. I've just made it for now so I can see what an individual exhibit page will look like as I build it. Each exhibit page will be linked to it's corresponding image on the homepage*/}
+                        {/* This exhibit link won't be on the website. I've just made it for now so I can see what an individual exhibit page will look like as I build it. Each exhibit page will be linked to it's corresponding image on the homepage*/}
                         <li className='navlink'>
                             <Link to="/exhibit">Exhibit</Link>
                         </li>
