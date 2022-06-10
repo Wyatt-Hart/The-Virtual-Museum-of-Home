@@ -66,7 +66,7 @@ export default function Def(html) {
                         <li className='navlink'>
                             <Link to="/">Museum</Link>
                         </li>
-<<<<<<< HEAD
+      
                         <li className='navlink'>
                             <Link to="/topics">Assignments</Link>
                         </li>
@@ -76,7 +76,7 @@ export default function Def(html) {
                         {/* This last link won't be on the website. I've just made it for now so I can see what an individual exhibit page will look like as I build it. Each exhibit page will be linked to it's corresponding image on the homepage*/}
                         <li className='navlink'>
                             <Link to="/exhibit">Exhibit</Link>
-=======
+
                         <li>
                             <Link to="/Assignments">Assignments</Link>
                         </li>
@@ -89,7 +89,7 @@ export default function Def(html) {
                         </li>
                         <li>
                             { loginLogout() }
->>>>>>> 40a6cc2440e98cd9e2128c7737f6c2490af71c48
+                            {/*>>>>>>> 40a6cc2440e98cd9e2128c7737f6c2490af71c48*/}
                         </li>
                         {/* This link is to be remove before production */}
                         { adminPage() }
