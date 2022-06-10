@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 const React = require('react')
 
-export default function Topics(){
+export default function Assignments(){
   let data = {user: {name: 'John Doe'}, topic: {id: 'test'}} //this line will need to be removed once data is actually implemented
   let componenetStyle = {width:'35vw', display:'inline-flex', flexDirection: 'column'}
   let buttonStyle = {border: 'none', background: 'none'}
