@@ -11,13 +11,15 @@ router.get('/', (req, res) => {
 
 router.post('/createUser', async(req, res) => {
 
-    console.log("Create User:")
+    const userId = req.currentUser.id
 
     let newUser = {
-        name: req.body.name,
+        name: req.body.firstName + " " + req.body.lastName,
+        username: req.body.username,
         email: req.body.email,
-        password: req.body.password,
-        profileCode: 1
+        password: await userPasswordHashed(req.body.password),
+        profileCode: req.body.profileCode,
+        allowPasswordChange: req.body.allowPasswordChange
     }
 
     const createdUser = await createUser(userId, newUser)
@@ -78,8 +80,6 @@ router.post('/login', async (req, res) => {
 
         const result = jwt.sign(currentUser.id, process.env.JWT_SECRET)
 
-        console.log(result)
-
         res.status(200).json({
             success: true,
             message: 'User authenticated',
@@ -87,9 +87,11 @@ router.post('/login', async (req, res) => {
                 
                 userId: currentUser.id,
                 username: currentUser.username,
+                name: currentUser.name,
                 email: currentUser.email,
-                allowPasswordReset: currentUser.allowPasswordReset,
+                allowPasswordChange: currentUser.allowPasswordChange,
                 exhibitTopics: currentUser.exhibitTopics,
+                profileCode: currentUser.profileCode,
                 token: result
 
             }
