@@ -57,13 +57,14 @@ function App() {
     }
   
     return (
-        <div className="body">
-            <div className="logo"></div>
+    
             <div className="login-container" >
                 <h2 className="Heading2">Login</h2>
+                
                 <p id="loginMessage">
                     { loginMessage }
                 </p>
+                
                 <form className="form" onSubmit={ onLogin }>
                     <input
                         value={username}
@@ -80,15 +81,13 @@ function App() {
                         placeholder="Password"
                         required
                     />
-                    <br /> 
-                    <h4> Don't have an account yet? 
-                        <Link to="/SignUp">Sign up here</Link>
-                    </h4>
+                   
+                
                     <input type="submit" value="Login" />
                     
                 </form>
             </div>
-      </div>
+     
     )
   }
   

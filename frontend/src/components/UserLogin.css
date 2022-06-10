@@ -1,17 +1,19 @@
-
+body {
+    background-color: black;
+}
 .login-container a {
     font-size: 1em;
     text-align: center;
 }
 
 .login-container h4 {
-    font-size: 10px;
+    font-size: 4em;
     text-align: center;
 }
 
 .Heading2 {
     color: black;
-    margin-top: 50px;
+    margin-top: 15%;
     text-align: center;
 }
 
@@ -20,8 +22,8 @@
     top: 50%;
     Left: 50%;
     transform: translate(-50%, -50% );
-    width: 400px;
-    height: 300px;
+    width: 25%;
+    height: 40%;
     background-color: rgb(208, 202, 202);
     border-radius: 1%;
 }
@@ -34,7 +36,7 @@
 }
 
 input {
-    width: 250px;
+    width: 100%;
     padding: 0 5px;
     height: 40px;
     border-style: none;

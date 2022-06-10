@@ -80,8 +80,6 @@ router.post('/login', async (req, res) => {
 
         const result = jwt.sign(currentUser.id, process.env.JWT_SECRET)
 
-        console.log(result.value)
-
         res.status(200).json({
             success: true,
             message: 'User authenticated',
@@ -93,6 +91,7 @@ router.post('/login', async (req, res) => {
                 email: currentUser.email,
                 allowPasswordChange: currentUser.allowPasswordChange,
                 exhibitTopics: currentUser.exhibitTopics,
+                profileCode: currentUser.profileCode,
                 token: result
 
             }

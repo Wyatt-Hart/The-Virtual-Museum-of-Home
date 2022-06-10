@@ -7,6 +7,7 @@ import UserLogin from './components/UserLogin';
 import SignUp from './components/SignUp'
 import { UserProvider } from './contexts/UserContext';
 import Exhibit from './components/Exhibit';
+import Admin from './components/Admin';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/Topics/new' element={<NewForm />} />
           <Route path='/SignUp' element={<SignUp />} />
           <Route path='/Exhibit' element={<Exhibit />} />
+          <Route path='/Admin' element={<Admin />} />
           {/* <Route path='/Topics/:id/edit' element={<EditForm />} /> */}
           {/* <Route path='/Users/:id' element={<Users />} /> */}
           

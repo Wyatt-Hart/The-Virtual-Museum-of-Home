@@ -52,10 +52,10 @@ export default function Signin() {
     }
 
     return(
-        <Def>
+        
             <div id='new-user-signup'>
                 <div className='signup-container'>
-                    <h2>Sign-up</h2>
+                    <h2>Create New User:</h2>
                     <form className="form" onSubmit={ onSignUp }>
                         <div className='signup-field'>
                             <label style={{padding:'1rem'}}>Email</label>
@@ -138,6 +138,5 @@ export default function Signin() {
                     </form>
                 </div>
             </div>
-        </Def>
     )
 }
