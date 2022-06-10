@@ -1,14 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
 import Error404 from './components/error404';
-import NewForm from './components/Topics-new';
+import Topics from './components/Topics';
 import Home from './components/Home';
-import Assignments from './components/Assignments';
-import UserLogin from './components/UserLogin';
-import SignUp from './components/SignUp'
-import { UserProvider } from './contexts/UserContext';
 import Exhibit from './components/Exhibit';
-import Admin from './components/Admin';
 
+// import Users from './components/User'
 
 function App() {
   return (
@@ -19,12 +15,8 @@ function App() {
 
           <Route path='*' element={<Error404 />}/>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<UserLogin />} />
-          <Route path='/Assignments' element={<Assignments />} />
-          <Route path='/Topics/new' element={<NewForm />} />
-          <Route path='/SignUp' element={<SignUp />} />
+          <Route path='/Topics' element={<Topics />} />
           <Route path='/Exhibit' element={<Exhibit />} />
-          <Route path='/Admin' element={<Admin />} />
           {/* <Route path='/Topics/:id/edit' element={<EditForm />} /> */}
           {/* <Route path='/Users/:id' element={<Users />} /> */}
           
