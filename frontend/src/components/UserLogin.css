@@ -1,0 +1,62 @@
+body {
+    background-color: black;
+}
+.login-container a {
+    font-size: 1em;
+    text-align: center;
+}
+
+.login-container h4 {
+    font-size: 4em;
+    text-align: center;
+}
+
+.Heading2 {
+    color: black;
+    margin-top: 15%;
+    text-align: center;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    Left: 50%;
+    transform: translate(-50%, -50% );
+    width: 25%;
+    height: 40%;
+    background-color: rgb(208, 202, 202);
+    border-radius: 1%;
+}
+
+.login-container form{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    border-style: none;
+    margin-top: 1em;
+}
+
+input[type=submit] {
+    background: linear-gradient(100deg, rgb(47, 0, 255), rgb(47, 0, 255));
+    border-radius: 30px;
+    border-style: none;
+    margin-top: 10px;
+    color: rgb(253, 253, 253);
+    font-weight: bolder;
+    box-shadow: 1px 5px silver;
+    cursor: pointer;
+}
+
+#loginMessage {
+    
+    text-align: center;
+    margin: 0 auto;
+    color: red;
+}

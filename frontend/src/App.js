@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <UserProvider>
         <Routes>
 
           <Route path='*' element={<Error404 />}/>
@@ -20,6 +21,7 @@ function App() {
           {/* <Route path='/Users/:id' element={<Users />} /> */}
           
         </Routes>
+      </UserProvider>
       </header>
     </div>
   );

@@ -1,0 +1,11 @@
+#admin-main {
+    width: 100vw;
+    color: white;
+    margin: 0 auto;
+}
+
+#create-user-com {
+    width: 30vw;
+    padding: 2em 2em;
+    border: 1px solid gold;
+}
