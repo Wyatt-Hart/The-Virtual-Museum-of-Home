@@ -76,7 +76,7 @@ export default function Def(html) {
                         {/* This last link won't be on the website. I've just made it for now so I can see what an individual exhibit page will look like as I build it. Each exhibit page will be linked to it's corresponding image on the homepage*/}
                         <li className='navlink'>
                             <Link to="/exhibit">Exhibit</Link>
-
+                        </li>
                         <li>
                             <Link to="/Assignments">Assignments</Link>
                         </li>
