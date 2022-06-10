@@ -65,20 +65,6 @@
 
 /*Exhibit Page*/
 
-.exhibit {
-  display: grid;
-  grid-template: "exhibit" 1fr;
-  place-items: start center;
-  place-content: center;
-  overflow: hidden;
-  max-height: clamp(650px, 50vh, 700px);
-  --border: 4px solid white;
-  border-top: var(--border);
-  border-bottom: var(--border);
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-}
 
 .exhibit-title {
   text-align: center;
@@ -90,117 +76,29 @@
   z-index: 1;
 }
 
-/*Selects every child element of the exhibit element*/
-
-.exhibit > * {
-  grid-area: exhibit;
-}
-
-/* Carousel styles */
-
-.carousel-control.prev {
-  place-self: center left;
-}
-
-.carousel-control.next {
-  place-self: center right;
-}
-
-.carousel-dots {
-  place-self: end center;
-}
-
-.carousel-viewport {
-  position: relative;
+.exhibit-container {
   overflow: hidden;
-  margin: 0 auto;
-  z-index: -1;
-  color: white;
-  background-color: black;
 }
 
-.carousel-items {
-  position: relative;
-  display: flex;
-  transition: transform 500ms cubic-bezier(0.25, 1, 0.5, 1);
+.exhibit-files {
+  white-space: nowrap;
+  transition: transform 0.3s;
 }
 
-.carousel-item {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  min-width: 100%;
-  transform: translateZ(0);
-}
-
-.carousel-viewport img {
-  object-fit: cover;
-  width: 25%;
-  height: 50%;
-  user-select: none;
-}
-
-.carousel-control {
-  --size: clamp(2.5rem, 8vw, 4rem);
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-content: center;
+.exhibit-item {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+  height: 200px;
+  background-color: red;
   color: white;
-  fill: currentcolor;
-  background: dodgerblue;
-  border: none;
-  width: var(--size);
-  height: var(--size);
-  padding: 0.25rem;
-  touch-action: manipulation;
-  transform: translateY(0);
 }
 
-.carousel-control:active {
-  transform: translateY(1px);
-}
-
-.carousel-control svg {
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.carousel-dots {
+.arrows {
   display: flex;
-  gap: 1rem;
-  padding: 1rem;
+  justify-content: center;
 }
 
-.carousel-dots .dot {
-  --size: 1rem;
-  padding: 0;
-  font-size: 0;
-  color: transparent;
-  border: 3px solid white;
-  background-color: white;
-  border-radius: 50%;
-  width: var(--size);
-  height: var(--size);
-}
-
-.carousel-dots .dot.active {
-  background-color: dodgerblue;
-}
-
-/* aspect-ratio fallback */
-@supports not (aspect-ratio: 16 / 9) {
-  .carousel-viewport .item::before {
-    content: "";
-    float: left;
-    padding-top: 56.25%;
-  }
-
-  .carousel-viewport .item::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
+.arrows > button {
+  margin: 5px;
 }

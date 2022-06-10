@@ -67,10 +67,10 @@ export default function Def(html) {
                             <Link to="/">Museum</Link>
                         </li>
                         <li>
-                            <Link to="/users">Curators</Link>
+                            <Link to="/Assignments">Assignments</Link>
                         </li>
                         <li>
-                            <Link to="/topics">Sign Up for Exhibits</Link>
+                            <Link to="/topics/new">Create Exhibit</Link>
                         </li>
                         {/* This last link won't be on the website. I've just made it for now so I can see what an individual exhibit page will look like as I build it. Each exhibit page will be linked to it's corresponding image on the homepage*/}
                         <li className='navlink'>

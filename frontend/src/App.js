@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Error404 from './components/error404';
 import NewForm from './components/Topics-new';
 import Home from './components/Home';
-import Topics from './components/Topics-select';
+import Assignments from './components/Assignments';
 import UserLogin from './components/UserLogin';
 import SignUp from './components/SignUp'
 import { UserProvider } from './contexts/UserContext';
@@ -20,7 +20,7 @@ function App() {
           <Route path='*' element={<Error404 />}/>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<UserLogin />} />
-          <Route path='/Topics' element={<Topics />} />
+          <Route path='/Assignments' element={<Assignments />} />
           <Route path='/Topics/new' element={<NewForm />} />
           <Route path='/SignUp' element={<SignUp />} />
           <Route path='/Exhibit' element={<Exhibit />} />
