@@ -4,8 +4,31 @@
     margin: 0 auto;
 }
 
+.admin-function {
+   
+    
+    height: 15vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.function-btn {
+    background-color: rgb(255, 255, 255);
+    color: blue;
+    width: 8em;
+    height: 8em;
+    font-weight: 900;
+    margin-left: 1em;
+    margin-right: 1em;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
 #create-user-com {
     width: 30vw;
     padding: 2em 2em;
-    border: 1px solid gold;
 }

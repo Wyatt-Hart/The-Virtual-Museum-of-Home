@@ -9,7 +9,11 @@ const exhibitSchema = new mongoose.Schema({
   sources: { type: Object, required: true,  default: 'Where did this information come from?' },
   images: { type: Object, required: true, default: 'http://placekitten.com/350/350'},
   videos: { type: Object, default: 'https://www.youtube.com/watch?v=oznr-1-poSU'},
-  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+  authorId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 })
 
 exhibitSchema.methods.showEstablished = function() {
