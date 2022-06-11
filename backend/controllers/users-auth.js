@@ -77,12 +77,21 @@ async function userAuthentication (loginUsername, password) {
         1. true if user allowed to performed the action or have access
         2. false if user not found or not allowed certain action
 */
-function userAuthorization (user, documentId, action) {
+function userAuthorization (currentUser, itemToEdit) {
 
     console.log('calling user authorization')
 
-    const ACTION = ["CREATE", "EDIT", "DELETE", "VIEW"]
+    if(currentUser.profileCode === 10) {
 
+        return true
+    }
+
+    if(currentUser.id === itemToEdit.id) {
+        
+        return true
+    }
+
+    return false
 }
 
 

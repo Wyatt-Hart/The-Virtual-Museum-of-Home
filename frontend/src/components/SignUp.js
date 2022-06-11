@@ -43,10 +43,23 @@ export default function Signin() {
             })
         })
 
-        if(response.success) {
-            console.log(response.data)
+        const result = await response.json();
+
+        if(result.success) {
+
+            alert(result.message)
+            setEmail('')
+            setUsername('')
+            setPassword('')
+            setFirstName('')
+            setLastName('')
+            setProfileCode(0)
+            setAllowPasswordChange(false)
+
+
         } else {
-            console.log(response.message)
+            alert(result.message)
+            
         }
         
     }
@@ -58,18 +71,18 @@ export default function Signin() {
                     <h2>Create New User:</h2>
                     <form className="form" onSubmit={ onSignUp }>
                         <div className='signup-field'>
-                            <label style={{padding:'1rem'}}>Email</label>
+                            <label>Email</label>
                             <input 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                type="text"
+                                type="email"
                                 placeholder="Email"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label style={{padding:'1rem'}}>Username</label>
+                            <label>Username</label>
                             <input
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
@@ -80,7 +93,7 @@ export default function Signin() {
                         </div>
 
                         <div>
-                            <label style={{padding:'1rem'}}>First Name</label>
+                            <label>First Name</label>
                             <input
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}
@@ -91,7 +104,7 @@ export default function Signin() {
                         </div>
 
                         <div>
-                            <label style={{padding:'1rem'}}>Last Name</label>
+                            <label>Last Name</label>
                             <input
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}
@@ -102,7 +115,7 @@ export default function Signin() {
                         </div>
 
                         <div>
-                            <label style={{padding:'1rem'}}>Password</label>
+                            <label>Password</label>
                             <input
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -112,7 +125,7 @@ export default function Signin() {
                             />
                         </div>
                         <div>
-                            <label style={{padding:'1rem'}}>Profile Code</label>
+                            <label>Profile Code</label>
                             <input
                                 value={profileCode}
                                 onChange={(e) => setProfileCode(e.target.value)}
