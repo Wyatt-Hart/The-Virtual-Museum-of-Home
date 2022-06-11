@@ -12,7 +12,6 @@ export default function Home () {
             .then(res => res.json())
             .then(data => {
                 let holder = []
-                console.log(data)
                 for(let x = 0; x < data.length; x++){
                     let source
                     if(typeof data[x].images !== 'string'){
@@ -20,14 +19,12 @@ export default function Home () {
                     }else{
                         source = data[x].images
                     }
-                    console.log(source)
 
                     holder.push(
                         <div className='gridcell' id={'gc' + (x + 1)}>
                             <Link to={`/exhibit/${data[x]._id}`}><img style={{borderRadius: '100%', objectFit: 'contain', width: '18rem', height: '18rem', overflow: 'hidden'}} src={source} alt={data[x].name}></img></Link>
                         </div>
                     )
-                    console.log(data[x])
                 }
                 setExhibits(holder)
             })
