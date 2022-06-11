@@ -25,34 +25,41 @@ const Exhibit = ({children}) => {
         setActiveIndex(newIndex)
     };
 
+    {/*}
+    useEffect(() => {
+        fetch('/exhibits')
+            .then((res) => res.json())
+            .then((activeIndex) => setActiveIndex(activeIndex))
+    }, [])
+
+    */}
     return (
         <Def>
             <div className="exhibit-container">
 
-            <h2 className="exhibit-title">Abraham Lincoln</h2>
+                <h2 className="exhibit-title">Abraham Lincoln</h2>
 
-    {/*All exhibit Images/Files with be children of "exhibit-container". Exhibit-container is also the viewer that shifts backwards or forwards to make the files visible/unhidden*/}
+    {/*All exhibit Images/Files will be children of "exhibit-container". Exhibit-container is also the viewer that shifts backwards or forwards to make the files visible/unhidden*/}
 
-            <div className="exhibit-files" style={{transform: `translateX(-${activeIndex}%)`}}>
+                <div className="exhibit-files" style={{transform: `translateX(-${activeIndex}%)`}}>
 
-                {React.Children.map(children, (child, index) => {
+                    {React.Children.map(children, (child, index) => {
                     return React.cloneElement(child, {width: "100%"});
-                })}
-            </div>
+                    })}
+                </div>
 
 
-            <div className="arrows">
-                <button onClick={() => {
+                <div className="arrows">
+                    <button onClick={() => {
                     updateIndex(activeIndex - 1);
-                }}
-                >Prev</button>
+                    }}
+                    >Prev</button>
                 
-                <button onClick={() => {
+                    <button onClick={() => {
                     updateIndex(activeIndex + 1);
-                }}
-                >Next</button>
-
-            </div>
+                    }}
+                    >Next</button>
+                </div>
             </div>
         </Def>
     );
