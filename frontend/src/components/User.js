@@ -1,5 +1,5 @@
 const React = require('react')
-
+{/*}
 function getUserFeed(props){
     const [input, setInput ] = useState('')
 }
@@ -9,3 +9,4 @@ function getUserProfile(props){
 }
 
 export {getUserFeed, getUserProfile}
+*/}
