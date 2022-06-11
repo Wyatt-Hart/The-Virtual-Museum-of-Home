@@ -1,5 +1,5 @@
-import { createRoutesFromChildren } from 'react-router-dom';
-import { useState } from 'react'
+import { createRoutesFromChildren, Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react'
 import Def from './default';
 
 const React = require('react');
@@ -14,8 +14,11 @@ export const ExhibitItem = ({children, width}) => {
 
 const Exhibit = ({children}) => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const id = Object.values(useParams())[0]
+    const [ exhibit, setExhibit ] = useState({})
 
     const updateIndex = (newIndex) => {
+        
         if (newIndex < 0) {
             newIndex = 0;
         } else if (newIndex >= React.Children.count(children)) {
@@ -25,21 +28,31 @@ const Exhibit = ({children}) => {
         setActiveIndex(newIndex)
     };
 
-    {/*}
     useEffect(() => {
-        fetch('/exhibits')
+        fetch(`/api/exhibits/${id}`)
             .then((res) => res.json())
+            .then((data => setExhibit(data)))
             .then((activeIndex) => setActiveIndex(activeIndex))
     }, [])
-
-    */}
+    
     return (
         <Def>
             <div className="exhibit-container">
               <div className='titlebar'>
-                <h2 className="exhibit-title">Abraham Lincoln</h2>
-                <button className="edit">Edit</button>
-              </div>
+                <div>
+                    <h2 className="exhibit-title">{exhibit.name !== undefined ? exhibit.name : 'Loading'}</h2>
+                    <img style={{borderRadius: '100%', objectFit: 'contain', width: '18rem', height: '18rem', overflow: 'hidden'}} src={exhibit.images !== undefined ? Object.keys(exhibit['images'])[0] : 'Loading'} />
+                </div>
+                </div>
+                <Link to={`/exhibit/edit/${id}`}>
+                    <button className="edit">Edit</button>
+                </Link>
+                <div>
+                    <p>{exhibit.regions !== undefined ? exhibit.regions[0] : ''}</p>
+                    <p>{exhibit.timePeriod !== undefined ? exhibit.timePeriod : ''}</p>
+                    <p style={{textAlign:'left'}}>{exhibit.description !== undefined ? exhibit.description : ''}</p>
+                    {/* <p>{exhibit.sources !== undefined ? exhibit.sources : ''}</p> */}
+                </div>
                 {/*All exhibit Images/Files will be children of "exhibit-container". Exhibit-container is also the viewer that shifts backwards or forwards to make the files visible/unhidden*/}
 
                 <div className="exhibit-files" style={{transform: `translateX(-${activeIndex}%)`}}>
