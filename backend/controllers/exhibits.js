@@ -17,7 +17,17 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    res.json('Exhibits Controller is working')
+    db.Exhibit.find()
+        .then(exhibits => res.json(exhibits))
+        .catch( err => {
+            if(err && err.name == 'ValidationError'){
+                let message = ''
+                for(var field in err.errors){
+                    message += `${err.errors[field].message}`
+                }
+                console.log('--Validation Error Message--', message)
+            }
+        })
 })
 
 
