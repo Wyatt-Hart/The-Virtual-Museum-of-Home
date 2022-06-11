@@ -36,10 +36,11 @@ const Exhibit = ({children}) => {
     return (
         <Def>
             <div className="exhibit-container">
-
+              <div className='titlebar'>
                 <h2 className="exhibit-title">Abraham Lincoln</h2>
-
-    {/*All exhibit Images/Files will be children of "exhibit-container". Exhibit-container is also the viewer that shifts backwards or forwards to make the files visible/unhidden*/}
+                <button className="edit">Edit</button>
+              </div>
+                {/*All exhibit Images/Files will be children of "exhibit-container". Exhibit-container is also the viewer that shifts backwards or forwards to make the files visible/unhidden*/}
 
                 <div className="exhibit-files" style={{transform: `translateX(-${activeIndex}%)`}}>
 
@@ -60,6 +61,7 @@ const Exhibit = ({children}) => {
                     }}
                     >Next</button>
                 </div>
+
             </div>
         </Def>
     );
