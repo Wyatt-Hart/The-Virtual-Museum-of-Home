@@ -15,8 +15,7 @@ export default function Assignments(){
   }
   return (
     <Def>
-      <div style={{ width: '80vw', margin: 'auto'}}>
-        <div style={componenetStyle}>
+      <div className="assignments">
           <h1>{data.user.name}</h1>  
 
           <h2>Your Exhibit Topics:</h2>
@@ -45,7 +44,6 @@ export default function Assignments(){
                 
                 <input type="submit" className="btn btn-primary" value="Submit Topic" />  
               </form>
-          </div>
         </div>
         <div className="topics-show" style={componenetStyle}>
           <h2>Claim Your Exhibit Topics</h2>
