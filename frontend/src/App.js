@@ -23,7 +23,7 @@ function App() {
           <Route path='/Assignments' element={<Assignments />} />
           <Route path='/Topics/new' element={<NewForm />} />
           <Route path='/SignUp' element={<SignUp />} />
-          <Route path='/Exhibit' element={<Exhibit />} />
+          <Route path='/Exhibit/:id' element={<Exhibit />} />
           <Route path='/Admin' element={<Admin />} />
           {/* <Route path='/Topics/:id/edit' element={<EditForm />} /> */}
           {/* <Route path='/Users/:id' element={<Users />} /> */}
