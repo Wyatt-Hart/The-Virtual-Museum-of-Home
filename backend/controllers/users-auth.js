@@ -86,7 +86,7 @@ function userAuthorization (currentUser, itemToEdit) {
         return true
     }
 
-    if(currentUser.id === itemToEdit.id) {
+    if(currentUser.id === itemToEdit.authorId) {
         
         return true
     }
@@ -94,6 +94,45 @@ function userAuthorization (currentUser, itemToEdit) {
     return false
 }
 
+// PASSWORD CHANGE
+async function passwordChange (user, newPassword) {
+
+    console.log(`New Password ${ newPassword }`)
+
+    const hashedPassword = await userPasswordHashed(newPassword)
+
+    const passwordChangePromise = new Promise( (resolve, reject) => {
+        
+        const userId = user.id
+        try {
+            const result = db.User.findByIdAndUpdate(
+                userId, 
+                { password: hashedPassword },
+                function (error, result) {
+                    if(error) {
+                       
+                        return (error)
+                    } else {
+                        
+                        return result
+                    }
+                }
+            ).clone()
+            resolve(result)
+        } catch (e) {
+
+            reject(e)
+        }
+        
+        
+        
+    })
+
+    
+    return passwordChangePromise
+
+}
 
 
-module.exports = {userAuthentication, userAuthorization, userPasswordHashed, createUser}
+
+module.exports = {userAuthentication, userAuthorization, userPasswordHashed, createUser, passwordChange}

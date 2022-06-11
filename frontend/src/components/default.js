@@ -12,36 +12,23 @@ export default function Def(html) {
     const navigate = useNavigate();
 
     const { user, setUser } = useContext(UserContext)
-    /*
+    
     useEffect(() => {
 
         if(!user) {
 
-            navigate('/')
+            navigate('/login')
         }
 
     },[user, navigate])
-    */
+    
     const userLogout = () => {
 
         setUser(null)
 
     }
 
-    const loginLogout = () => {
-        
-        if(!user) {
-
-            return ( <Link to="/Login">Login</Link> )
-
-        } else {
-
-            return (<Link to="/Login" onClick={userLogout}>Logout</Link>)
-        }
-
-    }
-
-    const adminPage = () => {
+    const profilePage = () => {
 
 
         if(user != undefined && parseInt(user.profileCode) === 10) {
@@ -49,13 +36,9 @@ export default function Def(html) {
             
             console.log(user.profileCode)
 
-            return (
-
-                <li>
-                    <Link to="/Admin">Admin</Link>
-                </li>
-                
-            )
+            return ('/admin')
+        } else {
+            return ('/user')
         }
     }
 
@@ -65,9 +48,9 @@ export default function Def(html) {
                 <header className='title'>
                     <h1>The Virtual Museum of Home</h1>
                 </header>
-                <a href="/user" target="_blank">
+                <Link to={ profilePage() }>
                     <button className="profile">Profile</button>
-                </a>
+                </Link>
                 
             </div>
 
@@ -87,12 +70,6 @@ export default function Def(html) {
                 <li className='navlink'>
                     <Link to="/exhibit">Exhibit</Link>
                 </li>
-                <li>
-                    { loginLogout() }
-                    {/*>>>>>>> 40a6cc2440e98cd9e2128c7737f6c2490af71c48*/}
-                </li>
-                {/* This link is to be remove before production */}
-                { adminPage() }
               </ul>
             </nav>
             {html.children}

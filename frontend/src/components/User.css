@@ -1,0 +1,26 @@
+#user-main {
+    color: white;
+    
+    padding: 2em;
+}
+
+#user-function {
+
+    border: 1px solid gold;
+    padding: 1em;
+    display: flex;
+}
+
+#password-reset-container {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    width: 30em;
+    height: 20em;
+}
+
+#password-reset-container button{ 
+
+    margin-top: 1em;
+    width: auto;
+    height: 2em;
+}

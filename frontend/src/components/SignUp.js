@@ -87,7 +87,7 @@ export default function Signin() {
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 type="text"
-                                placeholder="fname.lname"
+                                placeholder="Username (first name.last name)"
                                 required
                             />
                         </div>
@@ -98,7 +98,7 @@ export default function Signin() {
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}
                                 type="text"
-                                placeholder="Email"
+                                placeholder="First Name"
                                 required
                             />
                         </div>
@@ -109,7 +109,7 @@ export default function Signin() {
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}
                                 type="text"
-                                placeholder="Email"
+                                placeholder="Last Name"
                                 required
                             />
                         </div>
@@ -140,9 +140,9 @@ export default function Signin() {
                                 onChange={(e) => setAllowPasswordChange(e.target.value)}
                                 type="checkbox"
                                 id="allowPasswordChange"
-                                placeholder="Password"
+                                
                             />
-                            <label for="allowPasswordChange" >Allowed Password Change</label>
+                            <label>Allowed Password Change</label>
                             
                         </div>
 
