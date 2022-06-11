@@ -5,7 +5,7 @@ import './Admin.css'
 import { UserContext } from "../contexts/UserContext";
 import SignUp from "./SignUp"
 
-function App () {
+function Admin () {
 
     const navigate = useNavigate();
 
@@ -43,4 +43,4 @@ function App () {
     )
 }
 
-export default App;
+export default Admin;
