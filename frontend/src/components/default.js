@@ -11,7 +11,7 @@ export default function Def(html) {
     const navigate = useNavigate();
 
     const { user, setUser } = useContext(UserContext)
-
+    /*
     useEffect(() => {
 
         if(!user) {
@@ -20,7 +20,7 @@ export default function Def(html) {
         }
 
     },[user, navigate])
-
+    */
     const userLogout = () => {
 
         setUser(null)
@@ -42,11 +42,12 @@ export default function Def(html) {
 
     const adminPage = () => {
 
-        console.log(user.profileCode)
 
-        if(parseInt(user.profileCode) === 10) {
+        if(user != undefined && parseInt(user.profileCode) === 10) {
 
-        
+            
+            console.log(user.profileCode)
+
             return (
 
                 <li>
