@@ -1,12 +1,40 @@
 import Def from './default';
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 const React = require('react');
 
 export default function Home () {
+
+    const [ exhibits, setExhibits ] = useState([])
+
+    useEffect( ()=> {
+        fetch(`/api/exhibits`)
+            .then(res => res.json())
+            .then(data => {
+                let holder = []
+                for(let x = 0; x < data.length; x++){
+                    let source
+                    if(typeof data[x].images !== 'string'){
+                        source = Object.keys(data[x]['images'])[0]
+                    }else{
+                        source = data[x].images
+                    }
+
+                    holder.push(
+                        <div className='gridcell' id={'gc' + (x + 1)}>
+                            <Link to={`/exhibit/${data[x]._id}`}><img style={{borderRadius: '100%', objectFit: 'contain', width: '18rem', height: '18rem', overflow: 'hidden'}} src={source} alt={data[x].name}></img></Link>
+                        </div>
+                    )
+                }
+                setExhibits(holder)
+            })
+    }, [])
+
    return (
         <Def>
           <main className='museumgrid'>
-            
-            <div className='gridcell' id='gc1'>
+            <>{exhibits !== undefined ? exhibits : 'Loading...'}</>
+            {/* <div className='gridcell' id='gc1'>
                 <img src={require('../images/entries/Abraham_Lincoln.png')} alt='Abraham Lincoln'></img>
             </div>
             <div className='gridcell' id='gc2'>    
@@ -89,7 +117,7 @@ export default function Home () {
             </div>
             <div className='gridcell' id='gc28'>
                 <img src={require('../images/entries/William_James.png')} alt='William James'></img>
-            </div>
+            </div> */}
             
           </main>
         </Def>
