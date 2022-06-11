@@ -1,0 +1,18 @@
+{
+  "name": "the-virtual-museum-of-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/index.js",
+    "dev": "nodemon backend/index.js",
+    "build": "cd frontend && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bootcamp.github.com:metaversepeace/The-Virtual-Museum-of-Home.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
