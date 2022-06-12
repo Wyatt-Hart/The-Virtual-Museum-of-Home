@@ -16,11 +16,58 @@ function User () {
 
     const [confirmPassord, setComfirmPassword] = useState('')
 
+    // Profile
+    const [email, setEmail] = useState('')
+
+    const [name, setName] = useState('')
+
+    useEffect( () => {
+        setEmail(user.email)
+        setName(user.name)
+    },[])
+
+
+
     const userLogout = () => {
 
         setUser(null)
 
+        navigate('/login')
+
     }
+
+    const updateUserInformation = async (e) => {
+
+        e.preventDefault()
+
+        const url = '/api/users/updateUserInfo'
+
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({
+                email: email,
+                name: name
+            })
+        })
+
+        const result = await response.json();
+
+        if(result.success) {
+
+            alert(result.message)
+
+        } else {
+
+            alert(result.message)
+            
+        }
+
+    } 
 
     const changePasswordAction = async (e) => {
 
@@ -73,31 +120,101 @@ function User () {
                 <span id='password-reset-container'>
                     <h4>Password Change:</h4>
                     <form onSubmit={ changePasswordAction  }>
-
-                        <label htmlFor='currentPassword'>Current Password:</label>
-                        <input id='currentPassword' value={ currentPassword} onChange={ (e) => setCurrentPassword(e.target.value) } type='text'/>
-
-                        <label htmlFor='newPassword'>New Password:</label>
-                        <input id='newPassword' value={ newPassword } onChange={ (e) => setNewPassword(e.target.value) } type='text'/>
-
-                        <label htmlFor='confirmPassword'>Confirm Password:</label>
-                        <input id='confirmPassord' value={ confirmPassord } onChange={ (e) => setComfirmPassword(e.target.value)} type='text'/>
-
+                        <div className='flex'>
+                            <label htmlFor='currentPassword'>Current Password:</label>
+                            <input 
+                                id='currentPassword' 
+                                value={ currentPassword} 
+                                onChange={ (e) => setCurrentPassword(e.target.value) } 
+                                type='text'
+                                placeholder='Current Password'
+                            />
+                        </div>
+                        <div className='flex'>
+                            <label htmlFor='newPassword'>New Password:</label>
+                            <input 
+                                id='newPassword' 
+                                value={ newPassword } 
+                                onChange={ (e) => setNewPassword(e.target.value) } 
+                                type='text'
+                                placeholder='New Password'
+                            />
+                        </div>
+                        <div className='flex'>
+                            <label htmlFor='confirmPassword'>Confirm Password:</label>
+                            <input 
+                                id='confirmPassord' 
+                                value={ confirmPassord } 
+                                onChange={ (e) => setComfirmPassword(e.target.value)} 
+                                type='text'
+                                placeholder='Confirmed Password'
+                            />
+                        </div>
                         <button type='Submit'>Change My Password</button>
                     </form>
                 </span>
             )
+        } else {
+            <span id='password-reset-container'>
+                <h4>Password Change:</h4>
+                <p>Password change is currently unavailable for you account.</p>
+            </span>
         }
     }
-    
+ 
+    const profileUpdate = () => {
 
+        
+
+        if(user && user.allowPasswordReset) {
+            return (
+                <span id='profile-update-container'>
+                    <h4>Update Profile:</h4>
+                    <form onSubmit={ updateUserInformation  }>
+                        <div className='flex'>
+                            <label htmlFor='email'>Email:</label>
+                            <input 
+                                
+                                value={ email} 
+                                onChange={ (e) => setEmail(e.target.value) } 
+                                type='text'
+                                placeholder='name@emailprovider.com'
+                            />
+                        </div>
+                        <div className='flex'>
+                            <label htmlFor='name'>Name:</label>
+                            <input 
+                                
+                                value={ name } 
+                                onChange={ (e) => setName(e.target.value) } 
+                                type='text'
+                                placeholder='First name Last name'
+                            />
+                        </div>
+                    
+                        <button type='Submit'>Update My Information</button>
+                    </form>
+                </span>
+            )
+        } 
+    }
+    
 
     return (
         <Def>
             <div id='user-main'>
-                <h3>{ user.name }</h3> <Link to="/Login" onClick={userLogout}>Logout</Link>
+                <span className='flex'>
+                    <h2>{ name }</h2>
+                    <button id='logout-btn'>
+                        <Link to="/Login" onClick={userLogout}>Logout</Link>
+                    </button>
+                </span>
+                
                 <div id='user-function'>
+                     
                     { passwordReset() }
+
+                    { profileUpdate() }
                 </div>
               
             </div>

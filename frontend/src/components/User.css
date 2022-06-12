@@ -1,26 +1,93 @@
 #user-main {
     color: white;
-    
     padding: 2em;
 }
 
-#user-function {
+a {
+    text-decoration: none;
+}
 
-    border: 1px solid gold;
-    padding: 1em;
+.flex {
     display: flex;
 }
 
+#logout-btn {
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    height: 3em;
+    width: 7em;
+    font-size: 1em;
+    font-weight: 700;
+    background-color: aqua;
+}
+
+#user-function {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #password-reset-container {
-    margin-left: 0.5em;
+    background-color: rgb(19, 19, 19);
+    margin-left: 0.5;
     margin-right: 0.5em;
+    margin-top: 0.5em;
     width: 30em;
     height: 20em;
+    padding: 1em;
+}
+
+#password-reset-container input {
+    margin-left: 2em;
+    margin-bottom: 1em;
+    
+}
+#password-reset-container label {
+    margin-left: 2em;
+    width: 5em;
+    padding-top: .75em;
+    
 }
 
 #password-reset-container button{ 
-
+    background-color: aqua;
+    margin-left: 2em;
     margin-top: 1em;
+    padding: 1em 1em 1em 1em;
     width: auto;
-    height: 2em;
+    height: 3em;
+    font-weight: 600;
+}
+
+#profile-update-container {
+    background-color: rgb(19, 19, 19);
+    margin-left: 0.5;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+    width: 30em;
+    height: 20em;
+    padding: 1em;
+}
+
+#profile-update-container input {
+    margin-left: 2em;
+    margin-bottom: 1em;
+    
+}
+#profile-update-container label {
+    margin-left: 2em;
+    width: 5em;
+    padding-top: 1.50em;
+    
+}
+
+#profile-update-container button{ 
+    background-color: aqua;
+    margin-left: 2em;
+    margin-top: 6em;
+    padding: 1em 1em 1em 1em;
+    width: auto;
+    height: 3em;
+    font-weight: 600;
 }
