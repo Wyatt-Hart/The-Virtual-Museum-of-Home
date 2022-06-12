@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const res = require('express/lib/response')
-const { userAuthentication, userAuthorization ,userPasswordHashed, createUser } = require('./users-auth')
+const { userAuthentication, userAuthorization ,userPasswordHashed, createUser , passwordChange} = require('./users-auth')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 // const db = require('../models')
 
@@ -44,7 +45,7 @@ router.post('/createUser', async(req, res) => {
 
 })
 
-router.post('/passwordReset', async(req, res) => {
+router.post('/changePassword', async(req, res) => {
     
     const currentUser = req.currentUser
 
@@ -57,7 +58,27 @@ router.post('/passwordReset', async(req, res) => {
         })
     }
 
-    
+    if(!await bcrypt.compare(req.body.currentPassword, currentUser.password)) {
+
+        res.status(401).json({
+            success: false,
+            message: 'Invalid Current Password',
+            data: ""
+        })
+        return
+    }
+   
+
+    const result = await passwordChange(currentUser, req.body.newPassword)
+
+    res.status(200).json(
+        {
+            success: true,
+            message: 'Password changed successfully!',
+            data: result
+            
+        }
+    )
 
 })
 
@@ -89,7 +110,7 @@ router.post('/login', async (req, res) => {
                 username: currentUser.username,
                 name: currentUser.name,
                 email: currentUser.email,
-                allowPasswordChange: currentUser.allowPasswordChange,
+                allowPasswordReset: currentUser.allowPasswordReset == true ? currentUser.allowPasswordReset: false,
                 exhibitTopics: currentUser.exhibitTopics,
                 profileCode: currentUser.profileCode,
                 token: result
