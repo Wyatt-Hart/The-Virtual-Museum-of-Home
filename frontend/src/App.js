@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Error404 from './components/error404';
-import NewForm from './components/Topics-new';
+import NewForm from './components/Exhibit-new';
 import Home from './components/Home';
 import Assignments from './components/Assignments';
 import UserLogin from './components/UserLogin';

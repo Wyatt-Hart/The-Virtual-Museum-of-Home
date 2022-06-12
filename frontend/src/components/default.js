@@ -45,7 +45,7 @@ export default function Def(html) {
     return (
             <>
             <div className="titlebar">
-                <header className='title'>
+                <header className='title-main'>
                     <h1>The Virtual Museum of Home</h1>
                 </header>
                 <Link to={ profilePage() }>
