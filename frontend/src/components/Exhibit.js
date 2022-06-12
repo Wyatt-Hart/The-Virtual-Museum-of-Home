@@ -37,16 +37,22 @@ const Exhibit = ({children}) => {
     
     return (
         <Def>
-            <div className="exhibit-container">
-              <div className='titlebar'>
-                <div>
-                    <h2 className="exhibit-title">{exhibit.name !== undefined ? exhibit.name : 'Loading'}</h2>
-                    <img style={{borderRadius: '100%', objectFit: 'contain', width: '18rem', height: '18rem', overflow: 'hidden'}} src={exhibit.images !== undefined ? Object.keys(exhibit['images'])[0] : 'Loading'} />
-                </div>
-                </div>
-                <Link to={`/exhibit/edit/${id}`}>
-                    <button className="edit">Edit</button>
-                </Link>
+            <nav className='exhibitbar'>
+              <ul>
+                <li className="title-exhibit">
+                    <h2>{exhibit.name !== undefined ? exhibit.name : 'Loading'}</h2>
+                </li>
+                <li>
+                    <button type="edit" className="editbtn" >Edit</button>
+                </li>  
+              </ul>
+            </nav>
+
+            <div>    
+                <img style={{borderRadius: '100%', objectFit: 'contain', width: '18rem', height: '18rem', overflow: 'hidden'}} src={exhibit.images !== undefined ? Object.keys(exhibit['images'])[0] : 'Loading'} />
+            </div>
+
+            <div className="exhibit-container">  
                 <div>
                     <p>{exhibit.regions !== undefined ? exhibit.regions[0] : ''}</p>
                     <p>{exhibit.timePeriod !== undefined ? exhibit.timePeriod : ''}</p>

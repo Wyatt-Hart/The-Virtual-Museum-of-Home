@@ -28,7 +28,9 @@ export default function Def(html) {
         if(user !== undefined && parseInt(user.profileCode) === 10) {
 
             return ('/admin')
+
         } else {
+            
             return ('/user')
         }
     }
