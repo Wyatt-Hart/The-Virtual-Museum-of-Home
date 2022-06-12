@@ -4,10 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 2em;
+  line-height: 1em;
 }
 
-.title {
+.title-main {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1.5em;
   color: white;
@@ -15,6 +15,15 @@
   border: 2px solid yellow;
   width: 85%;
   text-align: center;
+}
+
+.title-sub {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+  background-color: black;
+  border: 2px solid yellow;
+  text-align: center;
+  padding-right: 2em;
 }
 
 .profile {
@@ -32,7 +41,7 @@
   text-align: center;
   color: white;
   background-color: black;
-  padding-right: 5em;
+  padding-right: 7em;
 }
 
 .navbar ul {
@@ -47,7 +56,7 @@
 .navbar ul li a {
   text-decoration: none;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 2em;
+  font-size: 1.5em;
   color: white;
   background-color: black;
 }
@@ -94,9 +103,59 @@
 .assignments {
   width: 80vw;
   margin: auto;
-  background-color: white;
+  color: white;
+  background-color: black;
 }
 
+.topics-container {
+  width: 100%;
+  margin: auto;
+}
+
+.form-control {
+  width: 90%;
+  margin: 1vw;
+
+}
+
+.topics-show {
+  width: 100%;
+  margin: auto;
+}
+
+.lbutton {
+  width: 16; 
+  height: 16;
+  color: white;
+}
+
+.rbutton {
+  width: 16; 
+  height: 16;
+  fill: white;
+}
+
+.student-assignments {
+  display: flex;
+  justify-content: space-around;
+}
+
+.no-padding {
+  padding: 0;
+  margin: 0;
+}
+
+.students-assigned {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 2.5em;
+}
+
+.exhibits-assigned {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 2.5em;
+}
 
 /*Exhibit Page*/
 
