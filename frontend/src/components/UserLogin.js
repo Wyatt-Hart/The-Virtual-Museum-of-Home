@@ -77,7 +77,7 @@ function App() {
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder="Password"
-                        required
+                       
                     />
                    
                 

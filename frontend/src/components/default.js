@@ -21,20 +21,11 @@ export default function Def(html) {
         }
 
     },[user, navigate])
-    
-    const userLogout = () => {
-
-        setUser(null)
-
-    }
 
     const profilePage = () => {
 
 
-        if(user != undefined && parseInt(user.profileCode) === 10) {
-
-            
-            console.log(user.profileCode)
+        if(user !== undefined && parseInt(user.profileCode) === 10) {
 
             return ('/admin')
         } else {

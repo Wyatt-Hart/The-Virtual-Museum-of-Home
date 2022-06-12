@@ -1,7 +1,7 @@
 .signup-container{
     margin: 0 auto;
-    display: grid;
-   
+    background-color: rgb(19, 19, 19);   
+    padding: 1.5em;
 }
 
 
@@ -12,9 +12,28 @@
     background-color: rgb(80, 80, 233);
     color: white;
     border: none;
+    font-weight: 600;
 }
 
 button:hover {
     cursor: pointer;
     
 }
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.5em;
+}
+
+.signup-container input {
+    margin-left: 1em;
+    border: 1px solid gold;
+   
+}
+
+label {
+    font-weight: 600;
+    
+}
+

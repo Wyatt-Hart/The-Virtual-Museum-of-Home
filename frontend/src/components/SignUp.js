@@ -70,7 +70,7 @@ export default function Signin() {
                 <div className='signup-container'>
                     <h2>Create New User:</h2>
                     <form className="form" onSubmit={ onSignUp }>
-                        <div className='signup-field'>
+                        <div className='flex'>
                             <label>Email</label>
                             <input 
                                 value={email}
@@ -81,7 +81,7 @@ export default function Signin() {
                             />
                         </div>
 
-                        <div>
+                        <div className='flex'>
                             <label>Username</label>
                             <input
                                 value={username}
@@ -92,7 +92,7 @@ export default function Signin() {
                             />
                         </div>
 
-                        <div>
+                        <div className='flex'>
                             <label>First Name</label>
                             <input
                                 value={firstName}
@@ -103,7 +103,7 @@ export default function Signin() {
                             />
                         </div>
 
-                        <div>
+                        <div className='flex'>
                             <label>Last Name</label>
                             <input
                                 value={lastName}
@@ -114,17 +114,17 @@ export default function Signin() {
                             />
                         </div>
 
-                        <div>
+                        <div className='flex'>
                             <label>Password</label>
                             <input
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                type="password"
+                                type="text"
                                 placeholder="Password"
                                 required
                             />
                         </div>
-                        <div>
+                        <div className='flex'>
                             <label>Profile Code</label>
                             <input
                                 value={profileCode}
@@ -134,19 +134,20 @@ export default function Signin() {
                                 required
                             />
                         </div>
-                        <div>
-                            <input
-                                value={allowPasswordChange}
-                                onChange={(e) => setAllowPasswordChange(e.target.value)}
-                                type="checkbox"
-                                id="allowPasswordChange"
-                                
-                            />
-                            <label>Allowed Password Change</label>
+                        <div className='flex'>
+                            <label>Allowed Password Change
+                                <input
+                                    value={allowPasswordChange}
+                                    onChange={(e) => setAllowPasswordChange(e.target.value)}
+                                    type="checkbox"
+                                    id="allowPasswordChange"
+                                    
+                                />
+                            </label>
                             
                         </div>
 
-                        <button type='Submit'>Sign-up</button>
+                        <button type='Submit'>Create User</button>
 
                     </form>
                 </div>

@@ -3,6 +3,7 @@ const res = require('express/lib/response')
 const { userAuthentication, userAuthorization ,userPasswordHashed, createUser , passwordChange} = require('./users-auth')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const db = require('../models')
 
 // const db = require('../models')
 
@@ -80,6 +81,106 @@ router.post('/changePassword', async(req, res) => {
         }
     )
 
+})
+
+router.post('/updateUserInfo', async(req, res) => {
+
+    const email = req.body.email
+    const name = req.body.name
+    const userId = req.currentUser.id
+    
+    db.User.findByIdAndUpdate(
+        userId,
+        { 
+            email: email,
+            name: name
+            
+        },
+        function (error, result) {
+
+            if(error) {
+
+                res.status(500).json({
+                    success: false,
+                    message: 'Unable to update your information at this time',
+                    data: result
+                })
+
+            } else {
+
+                res.status(200).json({
+                    success: true,
+                    message: 'Information updated successfully!',
+                    data: result
+                })
+
+            }
+        }
+    )
+})
+
+router.post('/passwordReset', async(req, res) => {
+    
+    const studentId = req.body.studentId
+    const newPassword = req.body.studentName.replace(/\s/g,'2546')
+    const hashedPassword = await userPasswordHashed(newPassword)
+
+    if(req.currentUser.profileCode != 10) {
+        res.status(401).json({
+            success: false,
+            message: 'User not authorized',
+            data: ""
+        })
+    }
+
+     
+    db.User.findByIdAndUpdate(
+        studentId,
+        { 
+            password: hashedPassword, 
+        },
+        function (error, result) {
+
+            if(error) {
+
+                res.status(500).json({
+                    success: false,
+                    message: 'Unable to reset user password.',
+                    data: error
+                })
+
+            } else {
+
+                res.status(200).json({
+                    success: true,
+                    message: 'Password reset successfully!',
+                    data: newPassword
+                })
+
+            }
+        }
+    )
+
+})
+
+router.post('/getUserList', async(req, res) => {
+    if(req.currentUser.profileCode != 10) {
+        res.status(401).json({
+            success: false,
+            message: 'User not authorized',
+            data: ""
+        })
+    }
+
+    const filter = {}
+
+    const result = await db.User.find(filter)
+
+    res.status(200).json({
+        success: true,
+        message: 'User list retrieved.',
+        data: result
+    })
 })
 
 router.post('/login', async (req, res) => {
