@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
+import Alert from 'Alerts';
+
+const React = require('react');
 
 function Example() {
   // Declare a new state variable, which we'll call "count"
   const editor = ('${exhibit.id.author}');
-  const user = user.id;
+  const user = loginUsername;
 
-  if user != editor {
-    return <button disabled={true}>Only authors can edit exhibits</button>
-  
-    } else {
-        return <button disabled={false}>Edit</button>
-    }
+  if (editor == user) {
+    
+    return <button disabled={false}>Edit</button>
+
+  } else {
+    
+    return <button disabled={true} onClick={Alert()}></button>
+  }
 
 {/*This code probably isn't important. It prevents children from being added to editable elements. You might want to to this, because this children will automatically be editable.
 

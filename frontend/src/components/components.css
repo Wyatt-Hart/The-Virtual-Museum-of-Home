@@ -1,4 +1,4 @@
-/*Homepage Title & Navbar*/
+/*TITLE & NAVBAR of the Default page*/
 
 .titlebar {
   display: flex;
@@ -26,6 +26,7 @@
   padding-right: 2em;
 }
 
+
 .profile {
   border: 2px solid yellow;
   background-color: red;
@@ -45,7 +46,7 @@
 }
 
 .navbar ul {
-  
+  display: inline;
 }
 
 .navbar ul li {
@@ -61,7 +62,7 @@
   background-color: black;
 }
 
-/*Museum Section of the Homepage*/
+/*MUSEUM SECTION of the Homepage*/
 
 .museumgrid {
   color: white;
@@ -72,7 +73,7 @@
 }
 
 
-  /* Create five equal columns that sits next to each other */
+  /*Create five equal columns, unless the screen is too small*/
 
 .gridcell {
   border-radius: 50%;
@@ -104,7 +105,7 @@
   
 }
 
-/*Assignments Page*/
+/*ASSIGNMENTS PAGE*/
 
 .assignments {
   width: 80vw;
@@ -114,18 +115,18 @@
 }
 
 .topics-container {
-  width: 100%;
+  width: 50%;
   margin: auto;
 }
 
 .form-control {
-  width: 90%;
-  margin: 1vw;
+  width: 70%;
+  margin: 0.5vw;
 
 }
 
 .topics-show {
-  width: 100%;
+  width: 60vw;
   margin: auto;
 }
 
@@ -163,34 +164,61 @@
   line-height: 2.5em;
 }
 
-/*Exhibit Page*/
+/*EXHIBIT PAGE*/
 
-.exhibit-title {
-  text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 2em;
+.exhibitbar {
+  text-align: justify;
   color: white;
   background-color: black;
-  padding: 1rem;
-  z-index: 1;
+  padding-right: 7em;
+  border: 2px solid yellow;
+  display: inline-flex;
+  width: 85%;
+
+}
+
+.exhibitbar ul {
+}
+
+.exhibitbar ul li {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.exhibitbar ul li a {
+  text-decoration: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  color: white;
+  background-color: black;
+  display: inline-flex;
+}
+.title-exhibit {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  color: white;
+  background-color: black;
+  border: 2px solid yellow;
+  text-align: center;
+  display: inline;
+  margin-left: 9em;
+}
+
+.editbtn {
+  display: inline;
+  margin-left: 10em;
 }
 
 .exhibit-container {
-  overflow: hidden;
+  
 }
 
 .exhibit-files {
-  white-space: nowrap;
-  transition: transform 0.3s;
+
 }
 
 .exhibit-item {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  background-color: red;
-  color: white;
+  
 }
 
 .arrows {
@@ -201,3 +229,11 @@
 .arrows > button {
   margin: 5px;
 }
+
+/*CREATE AN EXHIBIT PAGE*/
+
+.exhibit-new {
+  
+}
+
+
