@@ -22,7 +22,7 @@ export default function Home () {
 
                     holder.push(
                         <div className='gridcell' id={'gc' + (x + 1)}>
-                            <Link to={`/exhibit/${data[x]._id}`}><img style={{borderRadius: '100%', objectFit: 'contain', width: '18rem', height: '18rem', overflow: 'hidden'}} src={source} alt={data[x].name}></img></Link>
+                            <Link to={`/exhibit/${data[x]._id}`}><img className='gridcell' src={source} alt={data[x].name}></img></Link>
                         </div>
                     )
                 }
