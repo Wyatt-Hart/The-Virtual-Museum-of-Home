@@ -4,9 +4,10 @@ const React = require('react')
 
 export default function NewForm () {
   let navigate = useNavigate()
+  const userID = localStorage.getItem('token')
   const handleSubmit = (e)=>{
     e.preventDefault()
-    attemptSubmit(e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value, e.target[4].value, e.target[5].value, e.target[6].value, e.target[7].value)
+    attemptSubmit(e.target[0].value, e.target[5].value, e.target[1].value, e.target[2].value, e.target[3].value, e.target[4].value, e.target[6].value, e.target[7].value)
   }
   const attemptSubmit = async(name, tags, regions, timePeriod, description, sources, images, videos) => {
     let response = await fetch('/api/exhibits',
@@ -16,7 +17,7 @@ export default function NewForm () {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name: name, tags: tags, regions: regions, timePeriod: timePeriod, description: description, sources: sources, images: images, videos: videos})
+            body: JSON.stringify({name: name, tags: tags, regions: regions, timePeriod: timePeriod, description: description, sources: sources, images: images, videos: videos, authorId: userID})
         }    
     )
 
@@ -49,7 +50,7 @@ export default function NewForm () {
                 </div>
 
                 <div className="form-group col-6">
-                  <label htmlFor="regions">{`Region(s)`}</label>
+                  <label htmlFor="regions">{`Region(s)`}</label>{/*Object*/}
                   <input style={{width: '90%', margin: '1vw'}} className="form-control" id="regions" name="regions" placeholder='Region: What region(s) does this exhibit represent?' required />
                 </div>
 
@@ -67,22 +68,22 @@ export default function NewForm () {
 
               <div className='row' style={{justifyContent: 'center'}}>
                 <div className="form-group col-sm-6">
-                  <label htmlFor="sources">Sources</label>
+                  <label htmlFor="sources">Sources</label>{/*Object*/}
                   <input style={{width: '90%', margin: '1vw'}} className="form-control" id="sources" name="sources" placeholder='Sources: Where did the information in your description come from?' required />
                 </div>
 
                 <div className="form-group col-sm-6">
-                  <label htmlFor="tags">Tags</label>
+                  <label htmlFor="tags">Tags</label>{/*Array*/}
                   <input style={{width: '90%', margin: '1vw'}} className="form-control" id="tags" name="tags" required />
                 </div>
 
                 <div className="form-group col-sm-6">
-                  <label htmlFor="images">Images</label>
+                  <label htmlFor="images">Images</label>{/*Object*/}
                   <input style={{width: '90%', margin: '1vw'}} className="form-control" id="images" name="images" required />
                 </div>
 
                 <div className="form-group col-sm-6">
-                  <label htmlFor="videos">Videos</label>
+                  <label htmlFor="videos">Videos</label>{/*Object*/}
                   <input style={{width: '90%', margin: '1vw'}} className="form-control" id="videos" name="videos" required />
                 </div>
               
