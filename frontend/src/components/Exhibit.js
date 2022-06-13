@@ -17,6 +17,7 @@ const Exhibit = ({children}) => {
     const id = Object.values(useParams())[0]
     const [ exhibit, setExhibit ] = useState({})
     const userId = localStorage.getItem('token')
+    const [ videoURL, setVideoURL ] = useState('')
 
     const updateIndex = (newIndex) => {
         
@@ -28,6 +29,19 @@ const Exhibit = ({children}) => {
 
         setActiveIndex(newIndex)
     };
+
+    const setURL = ()=>{
+            let newURL
+            if(exhibit.videos.includes('&ab_channel')){
+                newURL = exhibit.videos.split('&ab_channel')[0]
+            }
+            let holder = newURL.split('/watch?v=')
+
+            let answer = holder[0] + '/embed/' + holder[1]
+
+            setVideoURL(answer)
+            console.log(answer)
+    }
 
     useEffect(() => {
         (async ()=>{
