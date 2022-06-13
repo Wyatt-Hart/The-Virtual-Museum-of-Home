@@ -10,9 +10,9 @@ const exhibitSchema = new mongoose.Schema({
   images: { type: Object, required: true, default: 'http://placekitten.com/350/350'},
   videos: { type: Object, default: 'https://www.youtube.com/watch?v=oznr-1-poSU'},
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
-  authorId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+  authorId: { type: String, required: true
+    /* type: mongoose.Schema.Types.ObjectId,
+    ref: 'User' */
   }
 })
 
