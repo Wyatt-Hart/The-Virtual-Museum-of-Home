@@ -7,7 +7,7 @@ export default function NewForm () {
   const userID = localStorage.getItem('token')
   const handleSubmit = (e)=>{
     e.preventDefault()
-    attemptSubmit(e.target[0].value, e.target[5].value, e.target[1].value, e.target[2].value, e.target[3].value, e.target[4].value, e.target[6].value, e.target[7].value)
+    attemptSubmit(e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value, e.target[6].value, e.target[7].value, e.target[4].value, e.target[5].value)
   }
 {/*
   var loadingImage = loadImage(
@@ -19,17 +19,17 @@ export default function NewForm () {
   )
 */}
 
-  const attemptSubmit = async(name, tags, regions, timePeriod, images, videos, description, sources) => {
-    let response = await fetch('/api/exhibits',
-        {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name: name, tags: tags, regions: regions, timePeriod: timePeriod, images: images, videos: videos, description: description, sources: sources, authorId: userID})
-        }    
-    )
+const attemptSubmit = async(name, tags, regions, timePeriod, description, sources, images, videos) => {
+  let response = await fetch('/api/exhibits',
+      {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({name: name, tags: tags, regions: regions, timePeriod: timePeriod, description: description, sources: sources, images: images, videos: videos, authorId: userID})
+      }    
+  )
 
     const result = await response.json();
 
@@ -80,9 +80,9 @@ export default function NewForm () {
               </div>
         
               <div className="submission-container">
-                <label className="submission-label" htmlFor="image">Profile Image</label>
+                <label className="submission-label" htmlFor="images">Profile Image</label>
 
-                <input className="form-control" type="url" id="url" name="image" placeholder='Upload your Exhibit Profile image here' required />     
+                <input className="form-control" type="url" id="images" name="images" placeholder='Upload your Exhibit Profile image here' required />     
               </div>
 
               <div className="submission-container">
