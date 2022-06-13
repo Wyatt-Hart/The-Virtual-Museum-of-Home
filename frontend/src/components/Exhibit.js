@@ -17,6 +17,7 @@ const Exhibit = ({children}) => {
     const id = Object.values(useParams())[0]
     const [ exhibit, setExhibit ] = useState({})
     const userId = localStorage.getItem('token')
+    const [ videoURL, setVideoURL ] = useState('')
 
     const updateIndex = (newIndex) => {
         
@@ -29,11 +30,39 @@ const Exhibit = ({children}) => {
         setActiveIndex(newIndex)
     };
 
+    const setURL = ()=>{
+            let newURL
+            if(exhibit.videos.includes('&ab_channel')){
+                newURL = exhibit.videos.split('&ab_channel')[0]
+            }
+            let holder = newURL.split('/watch?v=')
+
+            let answer = holder[0] + '/embed/' + holder[1]
+
+            setVideoURL(answer)
+            console.log(answer)
+    }
+
     useEffect(() => {
+        (async ()=>{
         fetch(`/api/exhibits/${id}`)
             .then((res) => res.json())
-            .then((data => setExhibit(data)))
-            .then((activeIndex) => setActiveIndex(activeIndex))
+            .then((data => {setExhibit(data)}))
+            /* .then(() => {
+                setTimeout(()=>{
+                    let newURL
+                    if(exhibit.videos.includes('&ab_channel')){
+                        newURL = exhibit.videos.split('&ab_channel')[0]
+                    }
+                    let holder = newURL.split('/watch?v=')
+
+                    let answer = holder[0] + '/embed/' + holder[1]
+
+                    setVideoURL(answer)
+                    console.log(answer)
+                },100)
+            }) */
+        })()
     }, [])
     
     return (
@@ -71,8 +100,10 @@ const Exhibit = ({children}) => {
             </div>
           </div>
           <div className="video-viewer">
-            <div className="exhibit-video">Video    
-                <img src={exhibit.videos !== undefined ? exhibit.videos: ''}/>
+            <div className="exhibit-video">Video
+                <script>{exhibit.videos !== undefined ? videoURL.length === 0 ? setURL() : '': ''}</script>
+                {exhibit.videos !== undefined ?  <iframe width="745" height="419" src={videoURL} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : ''}
+
             </div>
           </div>
 
