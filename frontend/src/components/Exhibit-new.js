@@ -4,9 +4,10 @@ const React = require('react')
 
 export default function NewForm () {
   let navigate = useNavigate()
+  const userID = localStorage.getItem('token')
   const handleSubmit = (e)=>{
     e.preventDefault()
-    attemptSubmit(e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value, e.target[4].value, e.target[5].value, e.target[6].value, e.target[7].value)
+    attemptSubmit(e.target[0].value, e.target[5].value, e.target[1].value, e.target[2].value, e.target[3].value, e.target[4].value, e.target[6].value, e.target[7].value)
   }
   const attemptSubmit = async(name, tags, regions, timePeriod, description, sources, images, videos) => {
     let response = await fetch('/api/exhibits',
@@ -16,7 +17,7 @@ export default function NewForm () {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name: name, tags: tags, regions: regions, timePeriod: timePeriod, description: description, sources: sources, images: images, videos: videos})
+            body: JSON.stringify({name: name, tags: tags, regions: regions, timePeriod: timePeriod, description: description, sources: sources, images: images, videos: videos, authorId: userID})
         }    
     )
 

@@ -8,7 +8,7 @@ const React = require('react');
 const alertedit = 'Only authors can edit exhibits' 
 
 
-export function Alert() {
+export default function Alert() {
     return (
     <div className='alert-edit'>{alertedit}</div>
     )

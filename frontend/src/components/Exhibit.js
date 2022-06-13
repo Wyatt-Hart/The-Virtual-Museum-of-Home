@@ -16,6 +16,7 @@ const Exhibit = ({children}) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const id = Object.values(useParams())[0]
     const [ exhibit, setExhibit ] = useState({})
+    const userId = localStorage.getItem('token')
 
     const updateIndex = (newIndex) => {
         
@@ -43,7 +44,7 @@ const Exhibit = ({children}) => {
                     <h2>{exhibit.name !== undefined ? exhibit.name : 'Loading'}</h2>
                 </li>
                 <li>
-                    <button type="edit" className="editbtn" >Edit</button>
+                    {userId===exhibit.authorId ? <button type="edit" className="editbtn" >Edit</button>:''}
                 </li>  
               </ul>
             </nav>

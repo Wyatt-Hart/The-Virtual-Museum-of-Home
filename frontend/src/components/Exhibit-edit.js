@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Alert from 'Alerts';
+import Alert from './Alerts';
 
-const React = require('react');
+// const React = require('react');
 
 function Example() {
   // Declare a new state variable, which we'll call "count"
@@ -16,6 +16,7 @@ function Example() {
     
     return <button disabled={true} onClick={Alert()}></button>
   }
+}
 
 {/*This code probably isn't important. It prevents children from being added to editable elements. You might want to to this, because this children will automatically be editable.
 

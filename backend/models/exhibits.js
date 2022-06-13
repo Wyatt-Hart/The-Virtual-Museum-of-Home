@@ -10,9 +10,9 @@ const exhibitSchema = new mongoose.Schema({
   description: { type: String, required: true,  default: 'https://www.lipsum.com/feed/html' },
   sources: { type: Object, required: true,  default: 'Where did this information come from?' },
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
-  authorId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+  authorId: { type: String, required: true
+    /* type: mongoose.Schema.Types.ObjectId,
+    ref: 'User' */
   }
 })
 
