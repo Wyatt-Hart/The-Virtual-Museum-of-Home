@@ -30,15 +30,29 @@ const Exhibit = ({children}) => {
     };
 
     useEffect(() => {
+        (async ()=>{
         fetch(`/api/exhibits/${id}`)
             .then((res) => res.json())
-            .then((data => setExhibit(data)))
-            .then((activeIndex) => setActiveIndex(activeIndex))
+            .then((data => {setExhibit(data)}))
+            /* .then(() => {
+                setTimeout(()=>{
+                    let newURL
+                    if(exhibit.videos.includes('&ab_channel')){
+                        newURL = exhibit.videos.split('&ab_channel')[0]
+                    }
+                    let holder = newURL.split('/watch?v=')
+                    let answer = holder[0] + '/embed/' + holder[1]
+                    setVideoURL(answer)
+                    console.log(answer)
+                },100)
+            }) */
+        })()
     }, [])
     
     return (
         <Def>
             <nav className='exhibitbar'>
+             <nav className="tb">  
               <ul>
                 <li className="exhibit-title">
                     <h2>{exhibit.name !== undefined ? exhibit.name : 'Loading'}</h2>
@@ -47,9 +61,10 @@ const Exhibit = ({children}) => {
                     {userId===exhibit.authorId ? <button type="edit" className="editbtn" >Edit</button>:''}
                 </li> 
               </ul>
-            </nav>
+             </nav> 
+            
 
-            <nav className="contextbar">
+             <nav className="contextbar">
               <ul> 
                 <li className="exhibit-context">
                     <h3>Tags: {exhibit.tags !== undefined ? exhibit.tags: ''}</h3>
@@ -63,22 +78,23 @@ const Exhibit = ({children}) => {
                     <h3>Time Period: {exhibit.timePeriod !== undefined ? exhibit.timePeriod: ''}</h3>
                 </li>  
               </ul>
+             </nav>
             </nav>
-            
           <div className="exhibitgrid">
-            <div className="exhibit-image">Image    
-                <img src={exhibit.images !== undefined ? exhibit.images: ''}/>
+            <div>Image    
+                <img className="exhibit-image" src={exhibit.images !== undefined ? exhibit.images: ''}/>
             </div>
           </div>
           <div className="video-viewer">
             <div className="exhibit-video">Video    
-                <img src={exhibit.videos !== undefined ? exhibit.videos: ''}/>
+            <iframe width="745" height="419" src={exhibit.videos !== undefined ? exhibit.videos: ''} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
             </div>
           </div>
 
           <div>  
             <div className="exhibit-text">
-                <p className="exhibit-description">Description: {exhibit.description !== undefined ? exhibit.description : ''}</p>
+                <p className="exhibit-description">{exhibit.description !== undefined ? exhibit.description : ''}</p>
 
                 <h3 className="exhibit-sources">Sources: {exhibit.sources !== undefined ? exhibit.sources : ''}</h3>
             </div>

@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "codropsicons";
+  src: local("codropsicons"),
+    url("../fonts/codropsicons.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: local("icomoon"),
+    url("../fonts/icomoon.ttf") format("truetype");
+  font-weight: normal;
+}
+
 /*TITLE & NAVBAR of the Default page*/
 
 .titlebar {
@@ -8,7 +22,7 @@
 }
 
 .title-main {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "icomoon";
   font-size: 1.5em;
   color: white;
   background-color: black;
@@ -18,7 +32,7 @@
 }
 
 .title-sub {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "icomoon";
   color: white;
   background-color: black;
   border: 2px solid yellow;
@@ -29,7 +43,8 @@
 
 .profile {
   border: 2px solid yellow;
-  background-color: red;
+  background-color: rebeccapurple;
+  font-family: Arial, Helvetica, sans-serif;
   color: white;
   font-size: 1em;
   border-radius: 50%;
@@ -56,7 +71,7 @@
 
 .navbar ul li a {
   text-decoration: none;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5em;
   color: white;
   background-color: black;
@@ -86,9 +101,8 @@
   overflow: hidden;
   }
 
-.gridcell:hover,
-.gridcell:active {
-  color: #333;
+.gridcell:hover {
+  border: 3px solid hotpink;
 }
 
  /* 
@@ -170,21 +184,34 @@
   text-align: justify;
   color: white;
   background-color: black;
-  padding-right: 7em;
+  display: inline-flex;
   border: 2px solid yellow;
-  width: 85%;
+  width: 100%;
 }
 
-.exhibitbar ul {
+.tb {
+  display: inline-flex;
+  width: 40%;
+  font-family: 'codropsicon';
+  font-size: 2em;
+  color: white;
+  background-color: black;
+  border: 2px solid yellow;
+  text-align: center;
+  display: inline;
+  margin-left: 0em;
 }
 
-.exhibitbar ul li {
+.tb ul {
+}
+
+.tb ul li {
   display: inline-flex;
   white-space: nowrap;
 }
 
 .exhibitbar ul li a {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'icomoon';
   font-size: 1.5em;
   color: white;
   background-color: black;
@@ -192,28 +219,22 @@
 }
 
 .exhibit-title {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 1.5em;
-  color: white;
-  background-color: black;
-  border: 2px solid yellow;
-  text-align: center;
-  display: inline;
-  margin-left: 9em;
+  
 }
 
 .editbtn {
   display: inline;
-  margin-left: 10em;
+  margin-left: 3em;
 }
 
 .contextbar {
+  font-family: 'codropsicon';
   text-align: justify;
   color: white;
   background-color: black;
-  padding-right: 7em;
+  padding-top: 2em;
   border: 2px solid yellow;
-  width: 85%;
+  width: 40%;
   text-decoration: none;
 }
 
@@ -226,22 +247,25 @@
 .exhibitgrid {
   color: white;
   background-color: black;
+  width: 100vw;
   display: grid;
-  padding: 1em;
+  padding: 2em;
   grid-template-columns: repeat(auto-fit, minmax(300px, 20vw));
   border: 2px solid yellow;
 }
 
 .exhibit-image {
-  object-fit: contain;
-  height: 18rem;
-  overflow: hidden;
+  float: left;
+  width:  500px;
+  height: 500px;
+  object-fit: scale-down;
   border: 2px solid yellow;
 }
 
 .video-viewer {
   border: 2px solid yellow;
   padding: 2em;
+  width: 100vw;
 }
 .exhibit-video {
   object-fit: contain;
@@ -250,9 +274,11 @@
 }
 
 .exhibit-text {
+  font-family: 'codropsicon';
   border: 2px solid yellow;
   color: white;
-  width: 85%;
+  width: 80vw;
+  justify-content: center;
 }
 
 .exhibit-description {
@@ -260,6 +286,7 @@
   color: white;
   padding-left: 3em;
   width: 85%;
+  text-align: center;
 }
 
 .exhibit-sources {
