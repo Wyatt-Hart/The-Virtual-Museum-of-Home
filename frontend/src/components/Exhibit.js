@@ -35,12 +35,14 @@ const Exhibit = ({children}) => {
             if(exhibit.videos.includes('&ab_channel')){
                 newURL = exhibit.videos.split('&ab_channel')[0]
             }
-            let holder = newURL.split('/watch?v=')
+            if(exhibit.videos.includes('youtube')){
+                let holder = newURL.split('/watch?v=')
 
-            let answer = holder[0] + '/embed/' + holder[1]
+                let answer = holder[0] + '/embed/' + holder[1]
+                setVideoURL(answer)
+            }
 
-            setVideoURL(answer)
-            console.log(answer)
+            
     }
 
     useEffect(() => {
@@ -48,18 +50,6 @@ const Exhibit = ({children}) => {
         fetch(`/api/exhibits/${id}`)
             .then((res) => res.json())
             .then((data => {setExhibit(data)}))
-            /* .then(() => {
-                setTimeout(()=>{
-                    let newURL
-                    if(exhibit.videos.includes('&ab_channel')){
-                        newURL = exhibit.videos.split('&ab_channel')[0]
-                    }
-                    let holder = newURL.split('/watch?v=')
-                    let answer = holder[0] + '/embed/' + holder[1]
-                    setVideoURL(answer)
-                    console.log(answer)
-                },100)
-            }) */
         })()
     }, [])
     
@@ -100,8 +90,9 @@ const Exhibit = ({children}) => {
             </div>
           </div>
           <div className="video-viewer">
-            <div className="exhibit-video">Video    
-            <iframe width="745" height="419" src={exhibit.videos !== undefined ? exhibit.videos: ''} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div className="exhibit-video">Video   
+            <script>{exhibit.videos !== undefined ? videoURL.length === 0 ? setURL() : '': ''}</script> 
+            {exhibit.videos !== undefined ?  <iframe width="745" height="419" src={videoURL} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : ''}
             
             </div>
           </div>
