@@ -80,7 +80,7 @@
   object-fit: scale-down;
   background-size: cover;
   background-color: #FFFFFF;
-  border:2px solid hotpink; 
+  border:2px solid yellow; 
   width: 300px;
   height: 300px;
   overflow: hidden;
@@ -233,7 +233,20 @@
 /*CREATE AN EXHIBIT PAGE*/
 
 .exhibit-new {
-  
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+}
+
+.image-upload {
+  color: white;
+}
+
+.image-form {
+  width: 90;
+  margin: 1vw;
+}
+.upload-rows {
 }
 
 

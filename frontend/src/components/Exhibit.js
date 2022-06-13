@@ -47,10 +47,12 @@ const Exhibit = ({children}) => {
                 </li>  
               </ul>
             </nav>
-
+            
+          <div className="exhibitgrid">
             <div>    
-                <img style={{borderRadius: '100%', objectFit: 'contain', width: '18rem', height: '18rem', overflow: 'hidden'}} src={exhibit.images !== undefined ? Object.keys(exhibit['images'])[0] : 'Loading'} />
+                <img style={{objectFit: 'contain', height: '18rem', overflow: 'hidden'}} src={exhibit.images !== undefined ? Object.keys(exhibit['images'])[0] : 'Loading'} />
             </div>
+          </div>
 
             <div className="exhibit-container">  
                 <div>
