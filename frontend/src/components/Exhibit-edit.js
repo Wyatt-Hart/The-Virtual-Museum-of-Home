@@ -144,5 +144,5 @@ export default function EditExhibit(exhibit) {
         </div>
       </Def>
     )
-}
+}  
 */}

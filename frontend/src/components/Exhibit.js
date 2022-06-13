@@ -40,49 +40,49 @@ const Exhibit = ({children}) => {
         <Def>
             <nav className='exhibitbar'>
               <ul>
-                <li className="title-exhibit">
+                <li className="exhibit-title">
                     <h2>{exhibit.name !== undefined ? exhibit.name : 'Loading'}</h2>
                 </li>
                 <li>
                     {userId===exhibit.authorId ? <button type="edit" className="editbtn" >Edit</button>:''}
-                </li>  
+                </li> 
               </ul>
             </nav>
 
-            <div>    
-                <img style={{borderRadius: '100%', objectFit: 'contain', width: '18rem', height: '18rem', overflow: 'hidden'}} src={exhibit.images !== undefined ? Object.keys(exhibit['images'])[0] : 'Loading'} />
+            <nav className="contextbar">
+              <ul> 
+                <li className="exhibit-context">
+                    <h3>Tags: {exhibit.tags !== undefined ? exhibit.tags: ''}</h3>
+                </li>
+
+                <li className="exhibit-context">
+                    <h3>Regions: {exhibit.regions !== undefined ? exhibit.regions: ''}</h3>
+                </li>
+
+                <li className="exhibit-context">
+                    <h3>Time Period: {exhibit.timePeriod !== undefined ? exhibit.timePeriod: ''}</h3>
+                </li>  
+              </ul>
+            </nav>
+            
+          <div className="exhibitgrid">
+            <div className="exhibit-image">Image    
+                <img src={exhibit.images !== undefined ? exhibit.images: ''}/>
             </div>
-
-            <div className="exhibit-container">  
-                <div>
-                    <p>{exhibit.regions !== undefined ? exhibit.regions[0] : ''}</p>
-                    <p>{exhibit.timePeriod !== undefined ? exhibit.timePeriod : ''}</p>
-                    <p style={{textAlign:'left'}}>{exhibit.description !== undefined ? exhibit.description : ''}</p>
-                    {/* <p>{exhibit.sources !== undefined ? exhibit.sources : ''}</p> */}
-                </div>
-                {/*All exhibit Images/Files will be children of "exhibit-container". Exhibit-container is also the viewer that shifts backwards or forwards to make the files visible/unhidden*/}
-
-                <div className="exhibit-files" style={{transform: `translateX(-${activeIndex}%)`}}>
-
-                    {React.Children.map(children, (child, index) => {
-                    return React.cloneElement(child, {width: "100%"});
-                    })}
-                </div>
-
-
-                <div className="arrows">
-                    <button onClick={() => {
-                    updateIndex(activeIndex - 1);
-                    }}
-                    >Prev</button>
-                
-                    <button onClick={() => {
-                    updateIndex(activeIndex + 1);
-                    }}
-                    >Next</button>
-                </div>
-
+          </div>
+          <div className="video-viewer">
+            <div className="exhibit-video">Video    
+                <img src={exhibit.videos !== undefined ? exhibit.videos: ''}/>
             </div>
+          </div>
+
+          <div>  
+            <div className="exhibit-text">
+                <p className="exhibit-description">Description: {exhibit.description !== undefined ? exhibit.description : ''}</p>
+
+                <h3 className="exhibit-sources">Sources: {exhibit.sources !== undefined ? exhibit.sources : ''}</h3>
+            </div>
+          </div>
         </Def>
     );
 };
