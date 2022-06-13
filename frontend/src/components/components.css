@@ -172,9 +172,7 @@
   background-color: black;
   padding-right: 7em;
   border: 2px solid yellow;
-  display: inline-flex;
   width: 85%;
-
 }
 
 .exhibitbar ul {
@@ -186,14 +184,14 @@
 }
 
 .exhibitbar ul li a {
-  text-decoration: none;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1.5em;
   color: white;
   background-color: black;
   display: inline-flex;
 }
-.title-exhibit {
+
+.exhibit-title {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1.5em;
   color: white;
@@ -209,17 +207,68 @@
   margin-left: 10em;
 }
 
-.exhibit-container {
-  
+.contextbar {
+  text-align: justify;
+  color: white;
+  background-color: black;
+  padding-right: 7em;
+  border: 2px solid yellow;
+  width: 85%;
+  text-decoration: none;
 }
 
-.exhibit-files {
-
+.exhibit-context {
+  display: inline;
+  color: white;
 }
 
-.exhibit-item {
-  
+
+.exhibitgrid {
+  color: white;
+  background-color: black;
+  display: grid;
+  padding: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 20vw));
+  border: 2px solid yellow;
 }
+
+.exhibit-image {
+  object-fit: contain;
+  height: 18rem;
+  overflow: hidden;
+  border: 2px solid yellow;
+}
+
+.video-viewer {
+  border: 2px solid yellow;
+  padding: 2em;
+}
+.exhibit-video {
+  object-fit: contain;
+  border: 2px solid yellow;
+  overflow: hidden;
+}
+
+.exhibit-text {
+  border: 2px solid yellow;
+  color: white;
+  width: 85%;
+}
+
+.exhibit-description {
+  border: 2px solid yellow;
+  color: white;
+  padding-left: 3em;
+  width: 85%;
+}
+
+.exhibit-sources {
+  border: 2px solid yellow;
+  color: white;
+  padding-left: 2.5em;
+  width: 85%;
+}
+
 
 .arrows {
   display: flex;
@@ -235,18 +284,37 @@
 .exhibit-new {
   width: 80vw;
   margin: auto;
-  text-align: center;
-}
-
-.image-upload {
   color: white;
+
 }
 
-.image-form {
-  width: 90;
-  margin: 1vw;
-}
 .upload-rows {
 }
+
+.submission-container {
+  display:inline-block;
+  width: 40vw;
+}
+
+.submission-label {
+  margin-left: 7vw;
+}
+
+.form-control {
+  margin-left: 1vw;
+}
+
+.description-form-control {
+  width: 100%;
+  margin: 1vw;
+  height: 50vh;
+}
+
+.new-exhibit-button {
+  margin: 1vh;
+}
+
+
+
 
 

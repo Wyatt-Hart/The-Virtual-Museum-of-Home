@@ -16,6 +16,20 @@ router.post('/', (req, res) => {
         })
 })
 
+router.post('/exhibit', (req, res) => {
+    res.json(req.body)
+    db.Exhibit.create(req.body)
+        .catch( err => {
+            if(err && err.name == 'ValidationError'){
+                let message = ''
+                for(var field in err.errors){
+                    message += `${err.errors[field].message}`
+                }
+                console.log('--Validation Error Message--', message)
+            }
+        })
+})
+
 router.get('/:id', (req, res) => {
     db.Exhibit.findById(req.params.id)
         .then(exhibit => res.json(exhibit))

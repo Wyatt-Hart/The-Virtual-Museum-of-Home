@@ -18,9 +18,9 @@ db.Exhibit.create([{
         'Ken Burns': 'Baseball'
     }, 
     images: {
-        '/images/cooperstown.jpg': 'The Baseball Hall of Fame was built in Cooperstown New York thanks to the Abner Doubleday Myth',
-        '/images/adoubleday.jpg': 'Abner Doubleday was a well known Union soldier in the Civil War, but there is no evidence that he ever played baseball', 
-        '/images/agraves.jpg': 'Abner Graves first claimed that he saw Doubleday invent baseball in the first decade of the 20th century, long after Doubleday had died.'
+        'profile-image': '/images/baseball-ball-of-fame',
+        'image2': '/images/abner-doubleday.jpg', 
+        'image3': '/images/abner-graves.jpg'
     }, 
     videos: {
         'https://www.pbs.org/show/baseball/': 'The first part of Baseball: A Film by Ken Burns discusses the Doubleday myth' 
@@ -41,9 +41,9 @@ db.Exhibit.create([{
         'Henry Louis Gates Jr.': 'Stony the Road'
     }, 
     images: {
-        '/images/fdouglas.jpg': 'An African American delegation led by Frederick met with President Johnson to express the needs of newly-freed African Americans. After they left Johnson told his secretary that Douglas, like all Black people, would slit white people/s throats if they had the chance.',
-        '/images/radicals.jpg': 'Johnson/s racist reconstruction policies galvinized "radical Republicans" to demand citizenship and suffrage for all African Americans',
-        '/images/new-politicians.jpg': 'Hundreds of African Americans in the South were elected to political office during the Reconstruction Era'
+        'profile-image': '/images/Andrew_Johnson.jpg',
+        'image2': '/images/the-massacre-at-new-orleans',
+        'image3': '/images/Nast-Johnson-Cartoon'
     }, 
     videos: {
         'https://www.pbs.org/weta/reconstruction/': 'If you prefer documentaries to books, check out Henry Louis Gates Reconstruction documentary' 
