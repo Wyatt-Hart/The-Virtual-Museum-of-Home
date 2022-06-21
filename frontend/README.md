@@ -17,3 +17,4 @@ Technologies used to build the application:
 Unfinished functionality:
     Exhibit creators will have the ability to edit their own exhibits. Presently, the application uses user authentication to establish if a user is the creator of an exhibit. If so, an edit button appears on their exhibit screen, but the edit button is not working yet.
 
+https://sheltered-castle-35928.herokuapp.com/login
